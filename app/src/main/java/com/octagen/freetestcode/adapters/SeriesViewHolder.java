@@ -41,25 +41,19 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
         star1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                star1.setImageResource(R.drawable.ic_red_star);
-                star2.setImageResource(R.drawable.ic_star_off);
-                star3.setImageResource(R.drawable.ic_star_off);
+                colorizeOneStar();
             }
         });
         star2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                star1.setImageResource(R.drawable.ic_yellow_star);
-                star2.setImageResource(R.drawable.ic_yellow_star);
-                star3.setImageResource(R.drawable.ic_star_off);
+                colorizeTwoStars();
             }
         });
         star3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                star1.setImageResource(R.drawable.ic_green_star);
-                star2.setImageResource(R.drawable.ic_green_star);
-                star3.setImageResource(R.drawable.ic_green_star);
+                colorizeThreeStars();
             }
         });
     }
@@ -68,5 +62,43 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
     public void bind(Serie item) {
         serieID.setText(item.getId() + "");
         serieLabel.setText(item.getLabel());
+        switch (item.getStars()) {
+            case 0:
+                colorizeZeroStars();
+                break;
+            case 1:
+                colorizeOneStar();
+                break;
+            case 2:
+                colorizeTwoStars();
+                break;
+            case 3:
+                colorizeThreeStars();
+                break;
+        }
+    }
+
+    private void colorizeZeroStars() {
+        star1.setImageResource(R.drawable.ic_star_off);
+        star2.setImageResource(R.drawable.ic_star_off);
+        star3.setImageResource(R.drawable.ic_star_off);
+    }
+
+    private void colorizeOneStar() {
+        star1.setImageResource(R.drawable.ic_red_star);
+        star2.setImageResource(R.drawable.ic_star_off);
+        star3.setImageResource(R.drawable.ic_star_off);
+    }
+
+    private void colorizeTwoStars() {
+        star1.setImageResource(R.drawable.ic_yellow_star);
+        star2.setImageResource(R.drawable.ic_yellow_star);
+        star3.setImageResource(R.drawable.ic_star_off);
+    }
+
+    private void colorizeThreeStars() {
+        star1.setImageResource(R.drawable.ic_green_star);
+        star2.setImageResource(R.drawable.ic_green_star);
+        star3.setImageResource(R.drawable.ic_green_star);
     }
 }

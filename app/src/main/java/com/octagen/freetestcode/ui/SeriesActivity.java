@@ -67,10 +67,10 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
     }
 
     private void populateRecyclerView() {
-        mSeries.add(new Serie(1, "Serie 1", 39));
-        mSeries.add(new Serie(2, "Serie 2", 37));
-        mSeries.add(new Serie(3, "Serie 3", 25));
-        mSeries.add(new Serie(4, "Serie 4", 26));
+        mSeries.add(new Serie(1, "Serie 1", 39, 0));
+        mSeries.add(new Serie(2, "Serie 2", 37, 1));
+        mSeries.add(new Serie(3, "Serie 3", 25, 2));
+        mSeries.add(new Serie(4, "Serie 4", 26, 3));
 
         if (mSeriesAdapter == null) {
             mSeriesAdapter = new SeriesAdapter(this, mSeries);
