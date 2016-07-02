@@ -3,7 +3,7 @@
               xmlns:costum="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="100dp"
+              android:layout_height="80dp"
               android:alpha="0.8"
               android:background="@color/serieItemColor"
               android:orientation="vertical">
@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50"
+        android:layout_weight="35"
         android:orientation="horizontal"
         android:weightSum="100">
 
@@ -21,6 +21,7 @@
             android:layout_weight="8"/>
 
         <com.octagen.customviews.CustomTextView
+            android:id="@+id/serieID"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="10"
@@ -30,10 +31,10 @@
             costum:Font="cent.TTF"
             costum:Size="16"
             tools:text="1"
-            tools:textSize="16sp"
-            android:id="@+id/serieID"/>
+            tools:textSize="16sp"/>
 
         <com.octagen.customviews.CustomTextView
+            android:id="@+id/serieLabel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="82"
@@ -41,16 +42,15 @@
             android:paddingLeft="8dp"
             android:textColor="#ffffff"
             costum:Font="cent.TTF"
-            costum:Size="12"
+            costum:Size="14"
             tools:text="Motocycle serie 1"
-            tools:textSize="12sp"
-            android:id="@+id/serieLabel"/>
+            tools:textSize="14sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50"
+        android:layout_weight="65"
         android:orientation="horizontal"
         android:padding="4dp"
         android:weightSum="100">
@@ -72,11 +72,14 @@
             android:layout_weight="15"/>
 
         <Button
+            android:id="@+id/startTestButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="60"
+            android:background="@drawable/start_test_btn_back"
             android:text="Commencer le test"
             android:textAllCaps="false"
+            android:textColor="#ffffff"
             android:textSize="12sp"/>
     </LinearLayout>
 </LinearLayout>

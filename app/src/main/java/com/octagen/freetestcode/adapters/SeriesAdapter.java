@@ -4,8 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.adapters.base.BaseSearchAdapter;
 import com.octagen.freetestcode.adapters.base.BinderViewHolder;
@@ -21,8 +23,11 @@ import butterknife.ButterKnife;
  */
 public class SeriesAdapter extends BaseSearchAdapter<SeriesAdapter.ViewHolder, Serie> {
 
+    private Context mContext;
+
     public SeriesAdapter(Context context, List<Serie> items) {
         super(context, items);
+        mContext = context;
     }
 
     @Override
@@ -39,10 +44,14 @@ public class SeriesAdapter extends BaseSearchAdapter<SeriesAdapter.ViewHolder, S
         TextView serieID;
         @Bind(R.id.serieLabel)
         TextView serieLabel;
+        @Bind(R.id.startTestButton)
+        Button startTestButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            startTestButton.setTypeface(TypeFaces.getTypeFace(mContext, "fonts/cent.TTF"));
         }
 
         @Override
