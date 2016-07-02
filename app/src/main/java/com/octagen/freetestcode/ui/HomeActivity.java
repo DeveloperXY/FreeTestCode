@@ -1,7 +1,9 @@
 package com.octagen.freetestcode.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.octagen.customviews.TypeFaces;
@@ -25,5 +27,9 @@ public class HomeActivity extends AppCompatActivity {
 
         // Set the font of the history button
         historyButton.setTypeface(TypeFaces.getTypeFace(this, "fonts/cent.TTF"));
+    }
+
+    public void onMotocycle(View view) {
+        startActivity(new Intent(this, MotocycleActivity.class));
     }
 }

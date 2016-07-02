@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,13 +14,12 @@ import com.octagen.freetestcode.R;
 public class ActionBar extends RelativeLayout {
 
     Context context;
-
     ImageView Image;
     TextView Libelle;
 
     ActionBarListener Listener;
 
-    LinearLayout Back;
+    ImageView Back;
 
     public ActionBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -35,7 +33,7 @@ public class ActionBar extends RelativeLayout {
         View Layout = inflater.inflate(R.layout.action_bar_wt, null);
 
         Image = (ImageView) Layout.findViewById(R.id.Image);
-        Back = (LinearLayout) Layout.findViewById(R.id.Back);
+        Back = (ImageView) Layout.findViewById(R.id.Back);
         Libelle = (TextView) Layout.findViewById(R.id.Libelle);
 
         Back.setOnClickListener(new OnClickListener() {

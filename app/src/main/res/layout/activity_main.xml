@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeActivity">
 
-
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -71,6 +70,7 @@
                     android:alpha="0.8"
                     android:background="@drawable/home_menu_item_red"
                     android:clickable="true"
+                    android:onClick="onMotocycle"
                     android:orientation="vertical">
 
                     <ImageView

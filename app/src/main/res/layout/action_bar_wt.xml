@@ -1,97 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:costum="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                xmlns:costum="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_height="60dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.8"
         android:background="@color/actionbarColor"
-        android:orientation="vertical"
-        android:weightSum="20">
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:src="@drawable/ic_back"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"/>
+
+        <ImageView
+            android:id="@+id/Image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:src="@drawable/ic_white_motocycle"/>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"></RelativeLayout>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="57">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="18"
-            android:orientation="horizontal"
-            android:weightSum="144">
-
-            <RelativeLayout
-                android:layout_width="0dp"
+            <com.octagen.customviews.CustomTextView
+                android:id="@+id/Libelle"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"></RelativeLayout>
+                android:layout_marginLeft="4dp"
+                android:gravity="left|center_vertical"
+                android:textColor="#ffffff"
+                costum:Font="cent.TTF"
+                costum:Size="16"/>
 
-            <LinearLayout
-                android:id="@+id/Back"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="14"
-                android:orientation="vertical"
-                android:weightSum="18"
-                android:clickable="true">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="4"></RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="10">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_back"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="113">
-
-                <com.octagen.customviews.CustomTextView
-                    android:id="@+id/Libelle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    costum:TexteSize="7"
-                    costum:Font="erasdemi.ttf"
-                    android:layout_centerInParent="true"
-                    android:textColor="#ffffff"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="14">
-
-                <ImageView
-                    android:id="@+id/Image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"></RelativeLayout>
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
