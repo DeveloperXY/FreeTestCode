@@ -1,10 +1,11 @@
-package com.octagen.freetestcode;
+package com.octagen.freetestcode.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.octagen.customviews.TypeFaces;
+import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.utils.CalculateScreenSize;
 
 import butterknife.Bind;
