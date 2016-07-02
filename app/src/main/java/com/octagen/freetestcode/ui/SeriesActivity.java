@@ -2,6 +2,7 @@ package com.octagen.freetestcode.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -47,6 +48,7 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
 
     private void setupActionBar() {
         Intent intent = getIntent();
+        @ColorRes int actionbarColor = intent.getIntExtra("color", -1);
         String actionbarTitle = intent.getStringExtra("title");
         @DrawableRes int actionbarImage = intent.getIntExtra("image", -1);
 
@@ -54,10 +56,15 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
             throw new IllegalArgumentException(
                     "You need to pass an image for the custom action bar.");
         }
+        if (actionbarColor == -1) {
+            throw new IllegalArgumentException(
+                    "You need to pass a color for the custom action bar.");
+        }
 
         mActionBar.setListener(this);
         mActionBar.setLibelle(actionbarTitle);
         mActionBar.setImage(actionbarImage);
+        mActionBar.setColor(actionbarColor);
     }
 
     private void setupRecyclerView() {
@@ -67,10 +74,10 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
     }
 
     private void populateRecyclerView() {
-        mSeries.add(new Serie(1, "Serie 1", 0, 0));
-        mSeries.add(new Serie(2, "Serie 2", 37, 1));
-        mSeries.add(new Serie(3, "Serie 3", 25, 2));
-        mSeries.add(new Serie(4, "Serie 4", 26, 3));
+        mSeries.add(new Serie(1, "Serie 1", 0));
+        mSeries.add(new Serie(2, "Serie 2", 37));
+        mSeries.add(new Serie(3, "Serie 3", 31));
+        mSeries.add(new Serie(4, "Serie 4", 26));
 
         if (mSeriesAdapter == null) {
             mSeriesAdapter = new SeriesAdapter(this, mSeries);

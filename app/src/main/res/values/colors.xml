@@ -9,7 +9,8 @@
     <color name="lightRed">#d5afb0</color>
     <color name="lightYellow">#eddcbc</color>
     <color name="historyGreen">#b9d7b4</color>
-    <color name="actionbarColor">#BB7076</color>
+    <color name="redActionbar">#BB7076</color>
+    <color name="yellowActionbar">@color/yellow</color>
     <color name="serieItemColor">#888787</color>
     <color name="startTestColor">#595959</color>
     <color name="noteCircleColor">#cecece</color>

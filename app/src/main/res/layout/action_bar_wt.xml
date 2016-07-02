@@ -7,12 +7,13 @@
                 tools:layout_height="60dp">
 
     <LinearLayout
+        android:id="@+id/actionbarContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.8"
-        android:background="@color/actionbarColor"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:weightSum="100"
+        tools:background="@color/actionbarColor">
 
         <Space
             android:layout_width="0dp"
@@ -34,9 +35,9 @@
         <ImageView
             android:id="@+id/Image"
             android:layout_width="0dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_weight="15"
             android:src="@drawable/ic_white_motocycle"/>
 

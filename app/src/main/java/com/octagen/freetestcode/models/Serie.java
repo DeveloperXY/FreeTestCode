@@ -7,13 +7,11 @@ public class Serie {
     private int id;
     private String label;
     private int rating; // */40
-    private int stars;
 
-    public Serie(int id, String label, int rating, int stars) {
+    public Serie(int id, String label, int rating) {
         this.id = id;
         this.label = label;
         this.rating = rating;
-        this.stars = stars;
     }
 
     public int getId() {
@@ -40,21 +38,12 @@ public class Serie {
         this.rating = rating;
     }
 
-    public int getStars() {
-        return stars;
-    }
-
-    public void setStars(int stars) {
-        this.stars = stars;
-    }
-
     @Override
     public String toString() {
         return "Serie{" +
                 "id=" + id +
                 ", label='" + label + '\'' +
                 ", rating=" + rating +
-                ", stars=" + stars +
                 '}';
     }
 }

@@ -40,25 +40,6 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
 
         startTestButton.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
         ratingLabel.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
-
-        star1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                colorizeOneStar();
-            }
-        });
-        star2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                colorizeTwoStars();
-            }
-        });
-        star3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                colorizeThreeStars();
-            }
-        });
     }
 
     @Override
@@ -66,47 +47,41 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
         serieID.setText(item.getId() + "");
         serieLabel.setText(item.getLabel());
 
-        int numStars = item.getStars();
+        int ratingValue = item.getRating();
         String rating = item.getRating() == 0 ? "../40" : String.format("%d/40", item.getRating());
         ratingLabel.setText(rating);
 
-        switch (numStars) {
-            case 0:
-                colorizeZeroStars();
-                break;
-            case 1:
-                colorizeOneStar();
-                break;
-            case 2:
-                colorizeTwoStars();
-                break;
-            case 3:
-                colorizeThreeStars();
-                break;
-        }
+        if (ratingValue == 0)
+            colorizeNone();
+        else if (ratingValue < 30)
+            colorizeRed();
+        else if (ratingValue < 36)
+            colorizeYellow();
+        else
+            colorizeGreen();
     }
 
-    private void colorizeZeroStars() {
+    private void colorizeNone() {
         star1.setImageResource(R.drawable.ic_star_off);
         star2.setImageResource(R.drawable.ic_star_off);
         star3.setImageResource(R.drawable.ic_star_off);
     }
 
-    private void colorizeOneStar() {
+    private void colorizeRed() {
         star1.setImageResource(R.drawable.ic_red_star);
-        star2.setImageResource(R.drawable.ic_star_off);
-        star3.setImageResource(R.drawable.ic_star_off);
+        star2.setImageResource(R.drawable.ic_red_star);
+        star3.setImageResource(R.drawable.ic_red_star);
     }
 
-    private void colorizeTwoStars() {
-        star1.setImageResource(R.drawable.ic_yellow_star);
-        star2.setImageResource(R.drawable.ic_yellow_star);
-        star3.setImageResource(R.drawable.ic_star_off);
-    }
-
-    private void colorizeThreeStars() {
+    private void colorizeGreen() {
         star1.setImageResource(R.drawable.ic_green_star);
         star2.setImageResource(R.drawable.ic_green_star);
         star3.setImageResource(R.drawable.ic_green_star);
+    }
+
+    private void colorizeYellow() {
+        star1.setImageResource(R.drawable.ic_yellow_star);
+        star2.setImageResource(R.drawable.ic_yellow_star);
+        star3.setImageResource(R.drawable.ic_yellow_star);
     }
 }

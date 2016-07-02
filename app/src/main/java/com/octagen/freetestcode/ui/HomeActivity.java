@@ -2,6 +2,7 @@ package com.octagen.freetestcode.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,29 +43,35 @@ public class HomeActivity extends AppCompatActivity {
     public void onMenuItemSelected(View view) {
         String title = "";
         @DrawableRes int image = -1;
+        @ColorRes int color = -1;
 
         switch (view.getId()) {
             case R.id.motocycle:
                 title = "Motocycle";
                 image = R.drawable.ic_white_motocycle;
+                color = R.color.redActionbar;
                 break;
             case R.id.vehicle:
                 title = "Véhicule";
                 image = R.drawable.ic_vehicle;
+                color = R.color.redActionbar;
                 break;
             case R.id.camion:
                 title = "Camion";
                 image = R.drawable.ic_camion;
+                color = R.color.yellowActionbar;
                 break;
             case R.id.bus:
                 title = "Bus";
                 image = R.drawable.ic_bus;
+                color = R.color.yellowActionbar;
                 break;
         }
 
         Intent intent = new Intent(this, SeriesActivity.class);
         intent.putExtra("title", title);
         intent.putExtra("image", image);
+        intent.putExtra("color", color);
         startActivity(intent);
     }
 }
