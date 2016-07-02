@@ -58,13 +58,37 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="20"/>
+            android:layout_weight="15"/>
 
-        <RatingBar
+        <LinearLayout
             android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="3"/>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/star1"
+                android:layout_weight="33"
+                android:src="@drawable/ic_star_off"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/star2"
+                android:layout_weight="33"
+                android:src="@drawable/ic_star_off"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/star3"
+                android:layout_weight="33"
+                android:src="@drawable/ic_star_off"/>
+        </LinearLayout>
 
         <Space
             android:layout_width="0dp"
@@ -75,11 +99,12 @@
             android:id="@+id/startTestButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="60"
+            android:layout_weight="40"
             android:background="@drawable/start_test_btn_back"
-            android:text="Commencer le test"
+            android:text="Commencer test"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="12sp"/>
+            android:textSize="14sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 </LinearLayout>
