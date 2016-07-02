@@ -30,7 +30,8 @@
             costum:Font="cent.TTF"
             costum:Size="16"
             tools:text="1"
-            tools:textSize="16sp"/>
+            tools:textSize="16sp"
+            android:id="@+id/serieID"/>
 
         <com.octagen.customviews.CustomTextView
             android:layout_width="0dp"
@@ -42,7 +43,8 @@
             costum:Font="cent.TTF"
             costum:Size="12"
             tools:text="Motocycle serie 1"
-            tools:textSize="12sp"/>
+            tools:textSize="12sp"
+            android:id="@+id/serieLabel"/>
     </LinearLayout>
 
     <LinearLayout
