@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:costum="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="100dp"
+              android:alpha="0.8"
+              android:background="@color/serieItemColor"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"/>
+
+        <com.octagen.customviews.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@color/serieNumberColor"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            costum:Font="cent.TTF"
+            costum:Size="16"
+            tools:text="1"
+            tools:textSize="16sp"/>
+
+        <com.octagen.customviews.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="82"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="8dp"
+            android:textColor="#ffffff"
+            costum:Font="cent.TTF"
+            costum:Size="12"
+            tools:text="Motocycle serie 1"
+            tools:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="100">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="3"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:text="Commencer le test"
+            android:textAllCaps="false"
+            android:textSize="12sp"/>
+    </LinearLayout>
+</LinearLayout>

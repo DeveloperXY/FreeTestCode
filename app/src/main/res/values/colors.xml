@@ -10,4 +10,8 @@
     <color name="lightYellow">#eddcbc</color>
     <color name="historyGreen">#b9d7b4</color>
     <color name="actionbarColor">#BB7076</color>
+    <color name="serieItemColor">#888787</color>
+    <color name="startTestColor">#595959</color>
+    <color name="noteCircleColor">#cecece</color>
+    <color name="serieNumberColor">#1a4e7d</color>
 </resources>
