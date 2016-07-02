@@ -58,7 +58,7 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="15"/>
+            android:layout_weight="8"/>
 
         <LinearLayout
             android:id="@+id/ratingBar"
@@ -93,7 +93,28 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="15"/>
+            android:layout_weight="2"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:background="@drawable/rating_circle"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="37/40"
+                android:id="@+id/ratingLabel"
+                android:gravity="center"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
 
         <Button
             android:id="@+id/startTestButton"
@@ -106,5 +127,6 @@
             android:textColor="#ffffff"
             android:textSize="14sp"
             android:textStyle="bold"/>
+
     </LinearLayout>
 </LinearLayout>

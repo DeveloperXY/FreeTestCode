@@ -23,6 +23,8 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
     TextView serieID;
     @Bind(R.id.serieLabel)
     TextView serieLabel;
+    @Bind(R.id.ratingLabel)
+    TextView ratingLabel;
     @Bind(R.id.startTestButton)
     Button startTestButton;
     @Bind(R.id.star1)
@@ -37,6 +39,7 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
         ButterKnife.bind(this, itemView);
 
         startTestButton.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
+        ratingLabel.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
 
         star1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +65,12 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
     public void bind(Serie item) {
         serieID.setText(item.getId() + "");
         serieLabel.setText(item.getLabel());
-        switch (item.getStars()) {
+
+        int numStars = item.getStars();
+        String rating = item.getRating() == 0 ? "../40" : String.format("%d/40", item.getRating());
+        ratingLabel.setText(rating);
+
+        switch (numStars) {
             case 0:
                 colorizeZeroStars();
                 break;
