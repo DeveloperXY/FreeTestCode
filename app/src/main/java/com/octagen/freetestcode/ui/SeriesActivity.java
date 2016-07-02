@@ -1,6 +1,8 @@
 package com.octagen.freetestcode.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 
 import com.octagen.freetestcode.R;
@@ -10,7 +12,10 @@ import com.octagen.freetestcode.custom.ActionBarWithText.ActionBarListener;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MotocycleActivity extends AppCompatActivity implements ActionBarListener {
+/**
+ * Created by Mohammed Aouf ZOUAG on 02/07/2016.
+ */
+public class SeriesActivity extends AppCompatActivity implements ActionBarListener {
 
     @Bind(R.id.ActionBar)
     ActionBar mActionBar;
@@ -25,9 +30,18 @@ public class MotocycleActivity extends AppCompatActivity implements ActionBarLis
     }
 
     private void setupActionBar() {
+        Intent intent = getIntent();
+        String actionbarTitle = intent.getStringExtra("title");
+        @DrawableRes int actionbarImage = intent.getIntExtra("image", -1);
+
+        if (actionbarImage == -1) {
+            throw new IllegalArgumentException(
+                    "You need to pass an image for the custom action bar.");
+        }
+
         mActionBar.setListener(this);
-        mActionBar.setLibelle("Motocycle");
-        mActionBar.setImage(R.drawable.ic_white_motocycle);
+        mActionBar.setLibelle(actionbarTitle);
+        mActionBar.setImage(actionbarImage);
     }
 
     @Override

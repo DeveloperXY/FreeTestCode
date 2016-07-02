@@ -63,6 +63,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/motocycle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
@@ -70,7 +71,7 @@
                     android:alpha="0.8"
                     android:background="@drawable/home_menu_item_red"
                     android:clickable="true"
-                    android:onClick="onMotocycle"
+                    android:onClick="onMenuItemSelected"
                     android:orientation="vertical">
 
                     <ImageView
@@ -96,12 +97,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/vehicle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="50"
                     android:alpha="0.8"
                     android:background="@drawable/home_menu_item_red"
                     android:clickable="true"
+                    android:onClick="onMenuItemSelected"
                     android:orientation="vertical">
 
                     <ImageView
@@ -136,6 +139,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/camion"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
@@ -143,6 +147,7 @@
                     android:alpha="0.8"
                     android:background="@drawable/home_menu_item_yellow"
                     android:clickable="true"
+                    android:onClick="onMenuItemSelected"
                     android:orientation="vertical">
 
                     <ImageView
@@ -168,12 +173,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/bus"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="50"
                     android:alpha="0.8"
                     android:background="@drawable/home_menu_item_yellow"
                     android:clickable="true"
+                    android:onClick="onMenuItemSelected"
                     android:orientation="vertical">
 
                     <ImageView
