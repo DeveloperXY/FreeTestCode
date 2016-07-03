@@ -15,4 +15,11 @@
     <color name="startTestColor">#595959</color>
     <color name="noteCircleColor">#cecece</color>
     <color name="serieNumberColor">#1a4e7d</color>
+    <color name="selectedNumberColor">#7a90a4</color>
+    <color name="notselectedNumberColor">#9a9a9a</color>
+    <color name="numberBackColor">#5b5a5a</color>
+    <color name="validationBtnColor">#86c27e</color>
+    <color name="validationBtnPressedColor">#9986c27e</color>
+    <color name="correctionBtnColor">#cd8288</color>
+    <color name="correctionBtnPressedColor">#99cd8288</color>
 </resources>

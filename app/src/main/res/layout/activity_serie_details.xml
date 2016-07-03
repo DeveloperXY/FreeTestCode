@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:costum="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.octagen.freetestcode.ui.SerieDetailsActivity">
+
+    <include layout="@layout/background_image_include"/>
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footerLayout"
+        android:orientation="vertical"
+        android:weightSum="246">
+
+        <include layout="@layout/actionbar_include"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="226"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_route_img"/>
+
+            <RelativeLayout
+                android:id="@+id/questionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20">
+
+                <TextView
+                    android:id="@+id/questionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/selectedAnswersLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <com.octagen.customviews.CustomTextView
+                    android:id="@+id/selectedOne"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:alpha="0.6"
+                    android:background="@color/notselectedNumberColor"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    costum:Font="cent.TTF"
+                    costum:Frensh="1"
+                    costum:Size="16"
+                    tools:text="1"
+                    tools:textSize="32sp"/>
+
+                <com.octagen.customviews.CustomTextView
+                    android:id="@+id/selectedTwo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:alpha="0.6"
+                    android:background="@color/selectedNumberColor"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    costum:Font="cent.TTF"
+                    costum:Frensh="2"
+                    costum:Size="16"
+                    tools:text="2"
+                    tools:textSize="32sp"/>
+
+                <com.octagen.customviews.CustomTextView
+                    android:id="@+id/selectedThree"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:alpha="0.6"
+                    android:background="@color/notselectedNumberColor"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    costum:Font="cent.TTF"
+                    costum:Frensh="3"
+                    costum:Size="16"
+                    tools:text="3"
+                    tools:textSize="32sp"/>
+
+                <com.octagen.customviews.CustomTextView
+                    android:id="@+id/selectedFour"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:alpha="0.6"
+                    android:background="@color/selectedNumberColor"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    costum:Font="cent.TTF"
+                    costum:Frensh="4"
+                    costum:Size="16"
+                    tools:text="4"
+                    tools:textSize="32sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/answersBoardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="28"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="50"
+                    android:orientation="horizontal">
+
+                    <com.octagen.customviews.CustomTextView
+                        android:id="@+id/answerOne"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="50"
+                        android:alpha="0.6"
+                        android:background="@color/numberBackColor"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        costum:Frensh="1"
+                        costum:Size="16"
+                        tools:text="1"
+                        tools:textSize="48sp"/>
+
+                    <com.octagen.customviews.CustomTextView
+                        android:id="@+id/answerTwo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="50"
+                        android:alpha="0.6"
+                        android:background="@color/numberBackColor"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        costum:Frensh="2"
+                        costum:Size="16"
+                        tools:text="2"
+                        tools:textSize="48sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="50"
+                    android:orientation="horizontal">
+
+                    <com.octagen.customviews.CustomTextView
+                        android:id="@+id/answerThree"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="50"
+                        android:alpha="0.6"
+                        android:background="@color/numberBackColor"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        costum:Frensh="3"
+                        costum:Size="16"
+                        tools:text="3"
+                        tools:textSize="48sp"/>
+
+                    <com.octagen.customviews.CustomTextView
+                        android:id="@+id/answerFour"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="50"
+                        android:alpha="0.6"
+                        android:background="@color/numberBackColor"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        costum:Frensh="4"
+                        costum:Size="16"
+                        tools:text="4"
+                        tools:textSize="48sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="12"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <Button
+                    android:id="@+id/correctionBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="50"
+                    android:background="@drawable/correction_btn_back"
+                    android:text="Correction"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"/>
+
+                <Button
+                    android:id="@+id/validationBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:background="@drawable/validation_btn_back"
+                    android:text="Validation"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footerLayout"
+        layout="@layout/multicolored_footer_include"/>
+
+</RelativeLayout>

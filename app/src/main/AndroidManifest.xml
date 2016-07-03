@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".ui.SeriesActivity">
         </activity>
+        <activity android:name=".ui.SerieDetailsActivity">
+        </activity>
     </application>
 
 </manifest>

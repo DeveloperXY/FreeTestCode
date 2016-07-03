@@ -53,7 +53,8 @@
                 android:gravity="left|center_vertical"
                 android:textColor="#ffffff"
                 costum:Font="cent.TTF"
-                costum:Size="16"/>
+                costum:Size="16"
+                tools:text="Serie 1"/>
 
         </RelativeLayout>
 
@@ -68,11 +69,11 @@
                 android:layout_height="match_parent"
                 android:gravity="left|center_vertical"
                 android:textColor="#ffffff"
+                android:textStyle="bold"
                 costum:Font="cent.TTF"
                 costum:Size="16"
                 tools:size="16sp"
-                tools:text="60"
-                android:textStyle="bold"/>
+                tools:text="60"/>
 
         </RelativeLayout>
 

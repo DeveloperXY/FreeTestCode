@@ -10,6 +10,7 @@
     <com.octagen.freetestcode.custom.ActionBarWithText.ActionBar
         android:id="@+id/ActionBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:background="@color/redActionbar"/>
 
 </RelativeLayout>
