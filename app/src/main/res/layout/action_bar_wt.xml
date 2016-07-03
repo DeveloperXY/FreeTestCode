@@ -13,7 +13,7 @@
         android:alpha="0.8"
         android:orientation="horizontal"
         android:weightSum="100"
-        tools:background="@color/actionbarColor">
+        tools:background="@color/redActionbar">
 
         <Space
             android:layout_width="0dp"
@@ -44,7 +44,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="57">
+            android:layout_weight="47">
 
             <com.octagen.customviews.CustomTextView
                 android:id="@+id/Libelle"
@@ -54,6 +54,25 @@
                 android:textColor="#ffffff"
                 costum:Font="cent.TTF"
                 costum:Size="16"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10">
+
+            <com.octagen.customviews.CustomTextView
+                android:id="@+id/timerLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:textColor="#ffffff"
+                costum:Font="cent.TTF"
+                costum:Size="16"
+                tools:size="16sp"
+                tools:text="60"
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 
