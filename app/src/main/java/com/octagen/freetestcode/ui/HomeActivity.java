@@ -48,22 +48,22 @@ public class HomeActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.motocycle:
                 title = "Motocycle";
-                image = R.drawable.ic_white_motocycle;
+                image = R.drawable.ic_motocycle_white;
                 color = R.color.redActionbar;
                 break;
             case R.id.vehicle:
                 title = "Véhicule";
-                image = R.drawable.ic_vehicle;
+                image = R.drawable.ic_vehicle_white;
                 color = R.color.redActionbar;
                 break;
             case R.id.camion:
                 title = "Camion";
-                image = R.drawable.ic_camion;
+                image = R.drawable.ic_camion_white;
                 color = R.color.yellowActionbar;
                 break;
             case R.id.bus:
                 title = "Bus";
-                image = R.drawable.ic_bus;
+                image = R.drawable.ic_bus_white;
                 color = R.color.yellowActionbar;
                 break;
         }
