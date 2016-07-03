@@ -52,7 +52,7 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
         ratingLabel.setText(rating);
 
         if (ratingValue == 0)
-            colorizeNone();
+            colorizeNone(); // not rated yet
         else if (ratingValue < 30)
             colorizeRed();
         else if (ratingValue < 36)
