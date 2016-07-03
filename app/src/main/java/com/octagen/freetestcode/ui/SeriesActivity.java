@@ -35,6 +35,11 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
     private SeriesAdapter mSeriesAdapter;
     private List<Serie> mSeries;
 
+    @ColorRes
+    private int actionbarColor;
+    @DrawableRes
+    private int actionbarImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +53,9 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
 
     private void setupActionBar() {
         Intent intent = getIntent();
-        @ColorRes int actionbarColor = intent.getIntExtra("color", -1);
         String actionbarTitle = intent.getStringExtra("title");
-        @DrawableRes int actionbarImage = intent.getIntExtra("image", -1);
+        actionbarColor = intent.getIntExtra("color", -1);
+        actionbarImage = intent.getIntExtra("image", -1);
 
         if (actionbarImage == -1) {
             throw new IllegalArgumentException(
@@ -83,8 +88,12 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
             mSeriesAdapter = new SeriesAdapter(this, mSeries);
             mSeriesAdapter.setSeriesListener(new SeriesAdapter.SeriesListener() {
                 @Override
-                public void onSerieSelected() {
-                    startActivity(new Intent(SeriesActivity.this, SerieDetailsActivity.class));
+                public void onSerieSelected(int position) {
+                    Intent intent = new Intent(SeriesActivity.this, SerieDetailsActivity.class);
+                    intent.putExtra("color", actionbarColor);
+                    intent.putExtra("image", actionbarImage);
+                    intent.putExtra("title", mSeries.get(position).getLabel());
+                    startActivity(intent);
                 }
             });
             seriesRecyclerView.setAdapter(mSeriesAdapter);

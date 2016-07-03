@@ -48,7 +48,7 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
             @Override
             public void onClick(View v) {
                 if (mListener != null)
-                    mListener.onSerieSelected();
+                    mListener.onSerieSelected(getAdapterPosition());
             }
         });
     }

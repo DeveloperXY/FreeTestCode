@@ -37,6 +37,6 @@ public class SeriesAdapter extends BaseSearchAdapter<SeriesViewHolder, Serie> {
     }
 
     public interface SeriesListener {
-        void onSerieSelected();
+        void onSerieSelected(int position);
     }
 }

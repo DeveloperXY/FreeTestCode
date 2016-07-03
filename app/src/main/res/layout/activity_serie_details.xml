@@ -141,14 +141,15 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="50"
                         android:alpha="0.6"
-                        android:background="@color/numberBackColor"
+                        android:background="@drawable/answer_number_back"
                         android:gravity="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="1"
                         costum:Size="40"
                         tools:text="1"
-                        tools:textSize="48sp"/>
+                        tools:textSize="48sp"
+                        android:clickable="true"/>
 
                     <com.octagen.customviews.CustomTextView
                         android:id="@+id/answerTwo"
@@ -156,14 +157,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="50"
                         android:alpha="0.6"
-                        android:background="@color/numberBackColor"
+                        android:background="@drawable/answer_number_back"
                         android:gravity="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="2"
                         costum:Size="40"
                         tools:text="2"
-                        tools:textSize="48sp"/>
+                        tools:textSize="48sp"
+                        android:clickable="true"/>
 
                 </LinearLayout>
 
@@ -181,14 +183,15 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="50"
                         android:alpha="0.6"
-                        android:background="@color/numberBackColor"
+                        android:background="@drawable/answer_number_back"
                         android:gravity="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="3"
                         costum:Size="40"
                         tools:text="3"
-                        tools:textSize="48sp"/>
+                        tools:textSize="48sp"
+                        android:clickable="true"/>
 
                     <com.octagen.customviews.CustomTextView
                         android:id="@+id/answerFour"
@@ -196,14 +199,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="50"
                         android:alpha="0.6"
-                        android:background="@color/numberBackColor"
+                        android:background="@drawable/answer_number_back"
                         android:gravity="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="4"
                         costum:Size="40"
                         tools:text="4"
-                        tools:textSize="48sp"/>
+                        tools:textSize="48sp"
+                        android:clickable="true"/>
 
                 </LinearLayout>
 
