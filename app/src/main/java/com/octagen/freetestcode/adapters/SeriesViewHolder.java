@@ -34,12 +34,23 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
     @Bind(R.id.star3)
     ImageView star3;
 
-    public SeriesViewHolder(View itemView, Context context) {
+    private SeriesAdapter.SeriesListener mListener;
+
+    public SeriesViewHolder(View itemView, Context context, SeriesAdapter.SeriesListener listener) {
         super(itemView);
+        mListener = listener;
         ButterKnife.bind(this, itemView);
 
         startTestButton.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
         ratingLabel.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
+
+        startTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null)
+                    mListener.onSerieSelected();
+            }
+        });
     }
 
     @Override

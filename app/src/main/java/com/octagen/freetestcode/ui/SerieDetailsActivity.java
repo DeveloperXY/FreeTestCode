@@ -10,6 +10,9 @@ import com.octagen.freetestcode.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Created by Mohammed Aouf ZOUAG on 03/07/2016.
+ */
 public class SerieDetailsActivity extends AppCompatActivity {
 
     @Bind(R.id.correctionBtn)

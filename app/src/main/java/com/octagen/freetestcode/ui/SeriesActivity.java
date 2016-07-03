@@ -81,9 +81,14 @@ public class SeriesActivity extends AppCompatActivity implements ActionBarListen
 
         if (mSeriesAdapter == null) {
             mSeriesAdapter = new SeriesAdapter(this, mSeries);
+            mSeriesAdapter.setSeriesListener(new SeriesAdapter.SeriesListener() {
+                @Override
+                public void onSerieSelected() {
+                    startActivity(new Intent(SeriesActivity.this, SerieDetailsActivity.class));
+                }
+            });
             seriesRecyclerView.setAdapter(mSeriesAdapter);
-        }
-        else
+        } else
             mSeriesAdapter.animateTo(mSeries);
     }
 
