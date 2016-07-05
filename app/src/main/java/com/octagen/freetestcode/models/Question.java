@@ -1,17 +1,16 @@
 package com.octagen.freetestcode.models;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Mohammed Aouf ZOUAG on 05/07/2016.
  */
 public class Question {
     private int id;
-    private Map<Integer, String> contents;
+    private List<QContent> contents;
     private List<Answer> answers;
 
-    public Question(int id, Map<Integer, String> contents, List<Answer> answers) {
+    public Question(int id, List<QContent> contents, List<Answer> answers) {
         this.id = id;
         this.contents = contents;
         this.answers = answers;
@@ -25,11 +24,11 @@ public class Question {
         this.id = id;
     }
 
-    public Map<Integer, String> getContents() {
+    public List<QContent> getContents() {
         return contents;
     }
 
-    public void setContents(Map<Integer, String> contents) {
+    public void setContents(List<QContent> contents) {
         this.contents = contents;
     }
 

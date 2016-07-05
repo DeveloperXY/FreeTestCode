@@ -6,10 +6,14 @@ import android.widget.Button;
 
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
-import com.octagen.freetestcode.utils.FileUtils;
+import com.octagen.freetestcode.models.Question;
+import com.octagen.freetestcode.utils.ParseUtils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +28,8 @@ public class SerieDetailsActivity extends ActionbarActivity {
     @Bind(R.id.validationBtn)
     Button validationBtn;
 
+    private List<Question> mQuestions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +40,12 @@ public class SerieDetailsActivity extends ActionbarActivity {
         setupFonts();
 
         try {
-            JSONObject object = new JSONObject(FileUtils.loadJSONFromAsset(this, "test.json"));
+            JSONObject object = new JSONObject(ParseUtils.loadJSONFromAsset(this, "test.json"));
             Log.i("JSON", object.toString());
+            JSONArray questions = object.getJSONArray("questions");
+            mQuestions = ParseUtils.parseQuestions(questions);
+
+            Log.i("JSON", "Parsed: " + mQuestions);
         } catch (JSONException e) {
             e.printStackTrace();
         }
