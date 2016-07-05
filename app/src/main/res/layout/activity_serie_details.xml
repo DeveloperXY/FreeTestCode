@@ -37,7 +37,7 @@
                 android:id="@+id/questionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="20">
+                android:layout_weight="25">
 
                 <TextView
                     android:id="@+id/questionText"
@@ -125,7 +125,7 @@
                 android:id="@+id/answersBoardLayout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="28"
+                android:layout_weight="23"
                 android:orientation="vertical"
                 android:layout_margin="8dp">
 
@@ -147,9 +147,9 @@
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="1"
-                        costum:Size="40"
+                        costum:Size="32"
                         tools:text="1"
-                        tools:textSize="48sp"
+                        tools:textSize="40sp"
                         android:clickable="true"/>
 
                     <com.octagen.customviews.CustomTextView
@@ -163,9 +163,9 @@
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="2"
-                        costum:Size="40"
+                        costum:Size="32"
                         tools:text="2"
-                        tools:textSize="48sp"
+                        tools:textSize="40sp"
                         android:clickable="true"/>
 
                 </LinearLayout>
@@ -189,9 +189,9 @@
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="3"
-                        costum:Size="40"
+                        costum:Size="32"
                         tools:text="3"
-                        tools:textSize="48sp"
+                        tools:textSize="40sp"
                         android:clickable="true"/>
 
                     <com.octagen.customviews.CustomTextView
@@ -205,9 +205,9 @@
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         costum:Frensh="4"
-                        costum:Size="40"
+                        costum:Size="32"
                         tools:text="4"
-                        tools:textSize="48sp"
+                        tools:textSize="40sp"
                         android:clickable="true"/>
 
                 </LinearLayout>

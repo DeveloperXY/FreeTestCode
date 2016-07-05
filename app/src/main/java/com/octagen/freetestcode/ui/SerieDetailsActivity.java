@@ -26,7 +26,10 @@ public class SerieDetailsActivity extends ActionbarActivity {
         ButterKnife.bind(this);
 
         setupActionBar();
+        setupFonts();
+    }
 
+    private void setupFonts() {
         correctionBtn.setTypeface(TypeFaces.getTypeFace(this, "fonts/cent.TTF"));
         validationBtn.setTypeface(TypeFaces.getTypeFace(this, "fonts/cent.TTF"));
     }
