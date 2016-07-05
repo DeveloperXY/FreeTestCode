@@ -1,10 +1,15 @@
 package com.octagen.freetestcode.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
+import com.octagen.freetestcode.utils.FileUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,6 +32,13 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
         setupActionBar();
         setupFonts();
+
+        try {
+            JSONObject object = new JSONObject(FileUtils.loadJSONFromAsset(this, "test.json"));
+            Log.i("JSON", object.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setupFonts() {

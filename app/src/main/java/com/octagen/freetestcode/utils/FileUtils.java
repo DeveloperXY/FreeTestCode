@@ -1,34 +1,27 @@
 package com.octagen.freetestcode.utils;
 
-import java.io.File;
-import java.io.FileReader;
+import android.content.Context;
+
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by Mohammed Aouf ZOUAG on 05/07/2016.
  */
 public class FileUtils {
-    public String readFile(String filename) {
-        String content = null;
-        File file = new File(filename);
-        FileReader reader = null;
+    public static String loadJSONFromAsset(Context context, String filename) {
+        String json;
         try {
-            reader = new FileReader(file);
-            char[] chars = new char[(int) file.length()];
-            reader.read(chars);
-            content = new String(chars);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            InputStream is = context.getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
         }
-        return content;
+        return json;
     }
 }
