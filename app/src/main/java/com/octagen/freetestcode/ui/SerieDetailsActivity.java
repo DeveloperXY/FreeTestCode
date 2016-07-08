@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
@@ -18,10 +19,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Mohammed Aouf ZOUAG on 03/07/2016.
@@ -52,6 +58,16 @@ public class SerieDetailsActivity extends ActionbarActivity {
      * The list of questions related to the current series.
      */
     private List<Question> mQuestions;
+
+    /**
+     * A map representing the list of selected choices, indexed by question ID.
+     */
+    private Map<Integer, Set<Integer>> mSelectedMap;
+
+    /**
+     * The list of currently selected choices.
+     */
+    private Set<Integer> mSelectedSet;
 
     /**
      * The index of the currently displayed question.
@@ -88,9 +104,43 @@ public class SerieDetailsActivity extends ActionbarActivity {
         }
     }
 
+    public void onValidate(View view) {
+        if (mSelectedSet.size() == 0)
+            Toast.makeText(this, "Choose at least 1 answer.", Toast.LENGTH_SHORT).show();
+        else {
+            Log.i("SELECTED", "Currently selected: " + mSelectedSet);
+            /*currentQIndex++;
+            toggleUI();*/
+        }
+    }
+
+    @OnClick({R.id.answerOne, R.id.answerTwo, R.id.answerThree, R.id.answerFour})
+    public void onAnswerSelected(View view) {
+        switch (view.getId()) {
+            case R.id.answerOne:
+                mSelectedSet.add(1);
+                break;
+            case R.id.answerTwo:
+                mSelectedSet.add(2);
+                break;
+            case R.id.answerThree:
+                mSelectedSet.add(3);
+                break;
+            case R.id.answerFour:
+                mSelectedSet.add(4);
+                break;
+        }
+    }
+
     private void setupUI() {
         currentQIndex = 0;
+        mSelectedMap = new HashMap<>();
+        mSelectedSet = new TreeSet<>();
 
+        toggleUI();
+    }
+
+    private void toggleUI() {
         Question currentQ = mQuestions.get(currentQIndex);
         List<QContent> contents = currentQ.getContents();
         QContent first = contents.get(0);
@@ -100,6 +150,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
             QContent second = contents.get(1);
             partTwoText.setText(second.getText());
 
+            partTwoLayout.setVisibility(View.VISIBLE);
             choiceThree.setVisibility(View.VISIBLE);
             choiceFour.setVisibility(View.VISIBLE);
             partTwoText.setVisibility(View.VISIBLE);
@@ -130,8 +181,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
                 target.setText(String.format("%s .%s", answer.getText(), suffix));
             }
-        }
-        else {
+        } else {
             partTwoLayout.setVisibility(View.GONE);
 
             List<Answer> answers = currentQ.getAnswers();

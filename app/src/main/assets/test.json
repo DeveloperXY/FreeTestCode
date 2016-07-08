@@ -41,10 +41,6 @@
         {
           "id": 1,
           "text": "Should I eat"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I eat"
         }
       ],
       "reponses": [
@@ -55,16 +51,6 @@
         },
         {
           "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
           "text": "No",
           "isValid": 2
         }
@@ -146,10 +132,6 @@
         {
           "id": 1,
           "text": "Should I cross"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I cross"
         }
       ],
       "reponses": [
@@ -160,16 +142,6 @@
         },
         {
           "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
           "text": "No",
           "isValid": 2
         }

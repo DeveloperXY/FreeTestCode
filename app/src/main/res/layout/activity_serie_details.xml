@@ -71,16 +71,18 @@
                                 <TextView
                                     android:id="@+id/questionID"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentTop="false"
                                     android:padding="8dp"
                                     android:text="23"
                                     android:textColor="#ffffff"
                                     android:textStyle="bold"
                                     android:gravity="center_vertical|right"
                                     android:background="@drawable/yellow_circle"
-                                    android:layout_marginRight="8dp"/>
+                                    android:layout_marginRight="8dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentBottom="false"/>
                             </RelativeLayout>
 
                             <TextView
@@ -384,7 +386,8 @@
                     android:text="Correction"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:onClick="onCorrect"/>
 
                 <Button
                     android:id="@+id/validationBtn"
@@ -395,7 +398,8 @@
                     android:text="Validation"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:onClick="onValidate"/>
 
             </LinearLayout>
 
