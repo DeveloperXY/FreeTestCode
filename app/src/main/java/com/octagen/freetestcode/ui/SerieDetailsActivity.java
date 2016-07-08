@@ -125,6 +125,20 @@ public class SerieDetailsActivity extends ActionbarActivity {
         }
     }
 
+    public void onCorrect(View view) {
+        mSelectedSet.clear();
+
+        int color = getResources().getColor(R.color.notselectedNumberColor);
+        selectedOne.setBackgroundColor(color);
+        selectedTwo.setBackgroundColor(color);
+        selectedThree.setBackgroundColor(color);
+        selectedFour.setBackgroundColor(color);
+        selectedOne.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+        selectedTwo.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+        selectedThree.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+        selectedFour.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+    }
+
     @OnClick({R.id.answerOne, R.id.answerTwo, R.id.answerThree, R.id.answerFour})
     public void onAnswerSelected(View view) {
         CustomTextView target = null;
@@ -162,6 +176,9 @@ public class SerieDetailsActivity extends ActionbarActivity {
         toggleUI();
     }
 
+    /**
+     * Sets the stage for the currently viewed question.
+     */
     private void toggleUI() {
         Question currentQ = mQuestions.get(currentQIndex);
         List<QContent> contents = currentQ.getContents();
