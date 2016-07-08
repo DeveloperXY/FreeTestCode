@@ -120,13 +120,24 @@ public class SerieDetailsActivity extends ActionbarActivity {
             Toast.makeText(this, "Choose at least 1 answer.", Toast.LENGTH_SHORT).show();
         else {
             Log.i("SELECTED", "Currently selected: " + mSelectedSet);
-            /*currentQIndex++;
-            toggleUI();*/
+            mSelectedMap.put(currentQIndex, mSelectedSet);
+            currentQIndex++;
+
+            if (currentQIndex >= mQuestions.size())
+                finish();
+            else {
+                toggleUI();
+                reset();
+            }
         }
     }
 
     public void onCorrect(View view) {
-        mSelectedSet.clear();
+        reset();
+    }
+
+    private void reset() {
+        mSelectedSet = new TreeSet<>();
 
         int color = getResources().getColor(R.color.notselectedNumberColor);
         selectedOne.setBackgroundColor(color);
