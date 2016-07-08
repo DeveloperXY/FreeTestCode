@@ -1,6 +1,7 @@
 package com.octagen.freetestcode.ui;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -95,6 +96,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
     private int currentQIndex;
 
     private CustomCountDownTimer countDownTimer;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,13 +212,44 @@ public class SerieDetailsActivity extends ActionbarActivity {
         toggleUI();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        mediaPlayer.pause();
+    }
+
     /**
      * Sets the stage for the currently viewed question.
      */
     private void toggleUI() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.q1_l);
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mediaPlayer = MediaPlayer.create(SerieDetailsActivity.this, R.raw.q1);
+                mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        countDownTimer.reset();
+                        countDownTimer.start();
+                    }
+                });
+            }
+        });
+        mediaPlayer.start();
+
         timerLabel.setText(QUESTION_SECONDS + "");
-        countDownTimer.reset();
-        countDownTimer.start();
 
         Question currentQ = mQuestions.get(currentQIndex);
         List<QContent> contents = currentQ.getContents();
@@ -290,6 +323,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
         super.onDestroy();
 
         countDownTimer.cancel();
+        mediaPlayer.release();
     }
 
     private class CustomCountDownTimer extends CountDownTimer {
