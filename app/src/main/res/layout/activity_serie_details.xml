@@ -215,7 +215,6 @@
                     android:alpha="0.6"
                     android:background="@color/notselectedNumberColor"
                     android:gravity="center"
-                    android:textColor="#000000"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="1"
@@ -229,15 +228,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="25"
                     android:alpha="0.6"
-                    android:background="@color/selectedNumberColor"
+                    android:background="@color/notselectedNumberColor"
                     android:gravity="center"
-                    android:textColor="#ffffff"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="2"
                     costum:Size="24"
                     tools:text="2"
-                    tools:textSize="32sp"/>
+                    tools:textSize="32sp"
+                    />
 
                 <com.octagen.customviews.CustomTextView
                     android:id="@+id/selectedThree"
@@ -247,7 +246,6 @@
                     android:alpha="0.6"
                     android:background="@color/notselectedNumberColor"
                     android:gravity="center"
-                    android:textColor="#000000"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="3"
@@ -261,15 +259,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="25"
                     android:alpha="0.6"
-                    android:background="@color/selectedNumberColor"
+                    android:background="@color/notselectedNumberColor"
                     android:gravity="center"
-                    android:textColor="#ffffff"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="4"
                     costum:Size="24"
                     tools:text="4"
-                    tools:textSize="32sp"/>
+                    tools:textSize="32sp"
+                    />
 
             </LinearLayout>
 

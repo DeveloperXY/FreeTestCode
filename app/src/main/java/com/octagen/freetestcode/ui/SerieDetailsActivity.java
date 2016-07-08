@@ -1,5 +1,6 @@
 package com.octagen.freetestcode.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.octagen.customviews.CustomTextView;
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.models.Answer;
@@ -50,6 +52,15 @@ public class SerieDetailsActivity extends ActionbarActivity {
     TextView choiceThree;
     @Bind(R.id.choiceFour)
     TextView choiceFour;
+
+    @Bind(R.id.selectedOne)
+    CustomTextView selectedOne;
+    @Bind(R.id.selectedTwo)
+    CustomTextView selectedTwo;
+    @Bind(R.id.selectedThree)
+    CustomTextView selectedThree;
+    @Bind(R.id.selectedFour)
+    CustomTextView selectedFour;
 
     @Bind(R.id.partTwoLayout)
     LinearLayout partTwoLayout;
@@ -116,19 +127,30 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
     @OnClick({R.id.answerOne, R.id.answerTwo, R.id.answerThree, R.id.answerFour})
     public void onAnswerSelected(View view) {
+        CustomTextView target = null;
+
         switch (view.getId()) {
             case R.id.answerOne:
                 mSelectedSet.add(1);
+                target = selectedOne;
                 break;
             case R.id.answerTwo:
                 mSelectedSet.add(2);
+                target = selectedTwo;
                 break;
             case R.id.answerThree:
                 mSelectedSet.add(3);
+                target = selectedThree;
                 break;
             case R.id.answerFour:
                 mSelectedSet.add(4);
+                target = selectedFour;
                 break;
+        }
+
+        if (target != null) {
+            target.setBackgroundColor(getResources().getColor(R.color.selectedNumberColor));
+            target.setTextColor(Color.parseColor("#ffffff"));
         }
     }
 
