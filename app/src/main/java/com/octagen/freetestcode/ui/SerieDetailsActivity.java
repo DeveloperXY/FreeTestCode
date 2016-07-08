@@ -2,6 +2,8 @@ package com.octagen.freetestcode.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +38,11 @@ import butterknife.OnClick;
  */
 public class SerieDetailsActivity extends ActionbarActivity {
 
+    /**
+     * The number of seconds allowed by question.
+     */
+    private static final int QUESTION_SECONDS = 10;
+
     @Bind(R.id.correctionBtn)
     Button correctionBtn;
     @Bind(R.id.validationBtn)
@@ -52,6 +59,8 @@ public class SerieDetailsActivity extends ActionbarActivity {
     TextView choiceThree;
     @Bind(R.id.choiceFour)
     TextView choiceFour;
+    @Bind(R.id.timerLabel)
+    TextView timerLabel;
 
     @Bind(R.id.selectedOne)
     CustomTextView selectedOne;
@@ -84,6 +93,8 @@ public class SerieDetailsActivity extends ActionbarActivity {
      * The index of the currently displayed question.
      */
     private int currentQIndex;
+
+    private CustomCountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,12 +134,23 @@ public class SerieDetailsActivity extends ActionbarActivity {
             mSelectedMap.put(currentQIndex, mSelectedSet);
             currentQIndex++;
 
-            if (currentQIndex >= mQuestions.size())
-                finish();
-            else {
-                toggleUI();
-                reset();
-            }
+            checkForFinish();
+        }
+    }
+
+    private void checkForFinish() {
+        if (currentQIndex >= mQuestions.size())
+            finish();
+        else {
+            Toast.makeText(this, "Passing to next question in 3 seconds...",
+                    Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    toggleUI();
+                    reset();
+                }
+            }, 3000);
         }
     }
 
@@ -183,6 +205,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
         currentQIndex = 0;
         mSelectedMap = new HashMap<>();
         mSelectedSet = new TreeSet<>();
+        countDownTimer = new CustomCountDownTimer(QUESTION_SECONDS * 1000, 1000);
 
         toggleUI();
     }
@@ -191,6 +214,10 @@ public class SerieDetailsActivity extends ActionbarActivity {
      * Sets the stage for the currently viewed question.
      */
     private void toggleUI() {
+        timerLabel.setText(QUESTION_SECONDS + "");
+        countDownTimer.reset();
+        countDownTimer.start();
+
         Question currentQ = mQuestions.get(currentQIndex);
         List<QContent> contents = currentQ.getContents();
         QContent first = contents.get(0);
@@ -255,6 +282,42 @@ public class SerieDetailsActivity extends ActionbarActivity {
                 Log.i("SIZE", "Target is NULL: " + (target == null));
                 target.setText(String.format("%s .%s", answer.getText(), suffix));
             }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        countDownTimer.cancel();
+    }
+
+    private class CustomCountDownTimer extends CountDownTimer {
+
+        private int seconds;
+
+        public CustomCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+            reset();
+        }
+
+        public void reset() {
+            seconds = QUESTION_SECONDS;
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            seconds--;
+            timerLabel.setText(seconds + "");
+        }
+
+        @Override
+        public void onFinish() {
+            timerLabel.setText("0");
+
+            mSelectedMap.put(currentQIndex, mSelectedSet);
+            currentQIndex++;
+            checkForFinish();
         }
     }
 }
