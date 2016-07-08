@@ -312,7 +312,6 @@ public class SerieDetailsActivity extends ActionbarActivity {
                         break;
                 }
 
-                Log.i("SIZE", "Target is NULL: " + (target == null));
                 target.setText(String.format("%s .%s", answer.getText(), suffix));
             }
         }
