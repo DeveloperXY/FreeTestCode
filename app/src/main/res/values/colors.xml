@@ -21,6 +21,7 @@
     <color name="numberBackPressedColor">#995b5a5a</color>
     <color name="validationBtnColor">#86c27e</color>
     <color name="validationBtnPressedColor">#9986c27e</color>
+    <color name="validationBtnDisabledColor">#9e9e9e</color>
     <color name="correctionBtnColor">#cd8288</color>
     <color name="correctionBtnPressedColor">#99cd8288</color>
 </resources>
