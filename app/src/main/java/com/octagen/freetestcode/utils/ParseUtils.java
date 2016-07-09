@@ -13,7 +13,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Mohammed Aouf ZOUAG on 05/07/2016.
@@ -75,5 +77,18 @@ public class ParseUtils {
         }
 
         return questions;
+    }
+
+    public static String parseAnswers(Set<Integer> answers) {
+        Iterator<Integer> iterator = answers.iterator();
+        StringBuilder sb = new StringBuilder("");
+
+        while (iterator.hasNext()) {
+            sb.append(iterator.next());
+            if (iterator.hasNext())
+                sb.append("-");
+        }
+
+        return sb.toString();
     }
 }

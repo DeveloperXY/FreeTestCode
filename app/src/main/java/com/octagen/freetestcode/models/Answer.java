@@ -3,7 +3,7 @@ package com.octagen.freetestcode.models;
 /**
  * Created by Mohammed Aouf ZOUAG on 05/07/2016.
  */
-public class Answer {
+public class Answer implements Comparable<Answer> {
     private int id;
     private String text;
     private boolean isValid;
@@ -45,5 +45,10 @@ public class Answer {
                 ", text='" + text + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Answer another) {
+        return id - another.id;
     }
 }

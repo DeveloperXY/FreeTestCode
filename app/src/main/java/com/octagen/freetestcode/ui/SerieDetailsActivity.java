@@ -62,6 +62,8 @@ public class SerieDetailsActivity extends ActionbarActivity {
     TextView choiceFour;
     @Bind(R.id.timerLabel)
     TextView timerLabel;
+    @Bind(R.id.questionID)
+    TextView questionID;
 
     @Bind(R.id.selectedOne)
     CustomTextView selectedOne;
@@ -97,6 +99,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
     private CustomCountDownTimer countDownTimer;
     private MediaPlayer mediaPlayer;
+    private JSONArray jsonArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,12 +135,29 @@ public class SerieDetailsActivity extends ActionbarActivity {
         if (mSelectedSet.size() == 0)
             Toast.makeText(this, "Choose at least 1 answer.", Toast.LENGTH_SHORT).show();
         else {
-            Log.i("SELECTED", "Currently selected: " + mSelectedSet);
+            mediaPlayer.release();
+            countDownTimer.cancel();
+
+            saveCurrentQuestion();
             mSelectedMap.put(currentQIndex, mSelectedSet);
             currentQIndex++;
 
             checkForFinish();
         }
+    }
+
+    private void saveCurrentQuestion() {
+        Question question = mQuestions.get(currentQIndex);
+        JSONObject object = new JSONObject();
+        try {
+            object.put("questionID", question.getId());
+            object.put("isValid", question.isCorrect(mSelectedSet));
+            object.put("validAnswers", ParseUtils.parseAnswers(question.getValidAnswers()));
+            object.put("selectedAnswers", ParseUtils.parseAnswers(mSelectedSet));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.i("SELECTED", "Result JSON: " + object);
     }
 
     private void checkForFinish() {
@@ -205,6 +225,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
     private void setupUI() {
         currentQIndex = 0;
+        jsonArray = new JSONArray();
         mSelectedMap = new HashMap<>();
         mSelectedSet = new TreeSet<>();
         countDownTimer = new CustomCountDownTimer(QUESTION_SECONDS * 1000, 1000);
@@ -243,15 +264,18 @@ public class SerieDetailsActivity extends ActionbarActivity {
                     public void onCompletion(MediaPlayer mp) {
                         countDownTimer.reset();
                         countDownTimer.start();
+                        validationBtn.setEnabled(true);
                     }
                 });
             }
         });
-        mediaPlayer.start();
 
+        mediaPlayer.start();
         timerLabel.setText(QUESTION_SECONDS + "");
+        validationBtn.setEnabled(false);
 
         Question currentQ = mQuestions.get(currentQIndex);
+        questionID.setText(currentQ.getId() + "");
         List<QContent> contents = currentQ.getContents();
         QContent first = contents.get(0);
         partOneText.setText(first.getText());
@@ -348,6 +372,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
         public void onFinish() {
             timerLabel.setText("0");
 
+            saveCurrentQuestion();
             mSelectedMap.put(currentQIndex, mSelectedSet);
             currentQIndex++;
             checkForFinish();

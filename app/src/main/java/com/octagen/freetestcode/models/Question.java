@@ -1,6 +1,12 @@
 package com.octagen.freetestcode.models;
 
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Mohammed Aouf ZOUAG on 05/07/2016.
@@ -38,6 +44,48 @@ public class Question {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public Set<Answer> getCorrectAnswers() {
+        Set<Answer> answerSet = new TreeSet<>();
+
+        for (int i = 0; i < answers.size(); i++) {
+            Answer answer = answers.get(i);
+
+            if (answer.isValid())
+                answerSet.add(answer);
+        }
+
+        return answerSet;
+    }
+
+    public boolean isCorrect(Set<Integer> answerIDs) {
+        if (answerIDs == null || answerIDs.size() == 0 ||
+                getCorrectAnswers().size() != answerIDs.size())
+            return false;
+
+        Iterator<Integer> iterator = answerIDs.iterator();
+        List<Answer> answerList = new ArrayList<>(getCorrectAnswers());
+        int i = 0;
+        while (iterator.hasNext()) {
+            if (iterator.next() != answerList.get(i++).getId())
+                return false;
+        }
+
+        Log.i("isCorrect", "Returning true...");
+        return true;
+    }
+
+    public Set<Integer> getValidAnswers() {
+        Set<Integer> set = new TreeSet<>();
+
+        for (int i = 0; i < answers.size(); i++) {
+            Answer answer = answers.get(i);
+            if (answer.isValid())
+                set.add(answer.getId());
+        }
+
+        return set;
     }
 
     @Override
