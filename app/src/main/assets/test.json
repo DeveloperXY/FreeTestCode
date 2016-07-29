@@ -1,396 +1,182 @@
-{
-  "questions": [
-    {
-      "id": 1,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I pass"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I pass"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I eat"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I go"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I go"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I walk through"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I walk through"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I cross"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I tweet"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I tweet"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I follow"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I follow"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I copy"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I copy"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I generate"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I generate"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I live"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I live"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I help"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I help"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "contenu": [
-        {
-          "id": 1,
-          "text": "Should I validate"
-        },
-        {
-          "id": 2,
-          "text": "Shouldn't I validate"
-        }
-      ],
-      "reponses": [
-        {
-          "id": 1,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 2,
-          "text": "No",
-          "isValid": 2
-        },
-        {
-          "id": 3,
-          "text": "Yes",
-          "isValid": 1
-        },
-        {
-          "id": 4,
-          "text": "No",
-          "isValid": 2
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "Id": 1,
+    "Name": "serie 1",
+    "Nombre": 0,
+    "Categorie": 2,
+    "Questions": [
+      {
+        "ID": 1,
+        "Image": "Question1.jpg",
+        "Audio": "Question1.mp3",
+        "QuestionItem": [
+          {
+            "Question": "Je Passe ?"
+          }
+        ],
+        "Reponses": [
+          {
+            "id": "1",
+            "Choix": "Oui",
+            "IsValide": true
+          },
+          {
+            "id": "2",
+            "Choix": "Non",
+            "IsValide": true
+          },
+          {
+            "id": "3",
+            "Choix": "Oui",
+            "IsValide": true
+          }
+        ]
+      },
+      {
+        "ID": 2,
+        "Image": "Question2.jpg",
+        "Audio": "Question2.mp3",
+        "QuestionItem": [
+          {
+            "Question": "dsd"
+          }
+        ],
+        "Reponses": [
+          {
+            "id": "5",
+            "Choix": "sdsd",
+            "IsValide": true
+          },
+          {
+            "id": "6",
+            "Choix": "sdsd",
+            "IsValide": false
+          }
+        ]
+      },
+      {
+        "ID": 3,
+        "Image": "Question3.jpg",
+        "Audio": "Question3.mp3",
+        "QuestionItem": [
+          {
+            "Question": "sss"
+          }
+        ],
+        "Reponses": [
+          {
+            "id": "7",
+            "Choix": "sss",
+            "IsValide": false
+          },
+          {
+            "id": "8",
+            "Choix": "sss",
+            "IsValide": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "ffff",
+    "Nombre": 0,
+    "Categorie": 2,
+    "Questions": [
+      {
+        "ID": 4,
+        "Image": "Question4.jpg",
+        "Audio": "Question4.mp3",
+        "QuestionItem": [
+          {
+            "Question": "fffffffff"
+          }
+        ],
+        "Reponses": [
+          {
+            "id": "9",
+            "Choix": "g",
+            "IsValide": true
+          },
+          {
+            "id": "10",
+            "Choix": "h",
+            "IsValide": false
+          },
+          {
+            "id": "11",
+            "Choix": "j",
+            "IsValide": true
+          }
+        ]
+      },
+      {
+        "ID": 5,
+        "Image": "Question5.jpg",
+        "Audio": "Question5.mp3",
+        "QuestionItem": [
+          {
+            "Question": "dfgdfg"
+          }
+        ],
+        "Reponses": [
+          {
+            "Choix": "dfgdfg",
+            "IsValide": true
+          },
+          {
+            "id": "12",
+            "Choix": "fgdfg",
+            "IsValide": true
+          },
+          {
+            "id": "13",
+            "Choix": "dfgdfg",
+            "IsValide": false
+          },
+          {
+            "id": "14",
+            "Choix": "dfgdfg",
+            "IsValide": false
+          }
+        ]
+      },
+      {
+        "ID": 6,
+        "Image": "Question6.jpg",
+        "Audio": "Question6.mp3",
+        "QuestionItem": [
+          {
+            "Question": "q1"
+          },
+          {
+            "Question": "q2"
+          }
+        ],
+        "Reponses": [
+          {
+            "id": "15",
+            "Choix": "g",
+            "IsValide": true
+          },
+          {
+            "id": "16",
+            "Choix": "g",
+            "IsValide": true
+          },
+          {
+            "id": "17",
+            "Choix": "d",
+            "IsValide": false
+          },
+          {
+            "id": "18",
+            "Choix": "d",
+            "IsValide": false
+          }
+        ]
+      }
+    ]
+  }
+]

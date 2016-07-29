@@ -45,31 +45,31 @@ public class ParseUtils {
                 JSONObject question = questionsArray.getJSONObject(i);
 
                 // 1- Parse answers
-                JSONArray answers = question.getJSONArray("reponses");
+                JSONArray answers = question.getJSONArray("Reponses");
                 List<Answer> answerList = new ArrayList<>();
 
                 for (int j = 0; j < answers.length(); j++) {
                     JSONObject answer = answers.getJSONObject(j);
                     answerList.add(new Answer(
                             answer.getInt("id"),
-                            answer.getString("text"),
-                            answer.getInt("isValid") == 1
+                            answer.getString("Choix"),
+                            answer.getBoolean("IsValide")
                     ));
                 }
 
                 // 2- Parse question content
-                JSONArray contents = question.getJSONArray("contenu");
+                JSONArray contents = question.getJSONArray("QuestionItem");
                 List<QContent> contentList = new ArrayList<>();
 
                 for (int j = 0; j < contents.length(); j++) {
                     JSONObject content = contents.getJSONObject(j);
                     contentList.add(new QContent(
-                            content.getInt("id"),
-                            content.getString("text")
+                            -1,
+                            content.getString("Question")
                     ));
                 }
 
-                questions.add(new Question(question.getInt("id"), contentList, answerList));
+                questions.add(new Question(question.getInt("ID"), contentList, answerList));
 
             } catch (JSONException e) {
                 e.printStackTrace();

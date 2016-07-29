@@ -91,7 +91,7 @@
                                 android:layout_height="match_parent"
                                 android:gravity="left|center_vertical"
                                 android:padding="4dp"
-                                android:text="Ce feu est en panne :"
+                                tools:text="Ce feu est en panne :"
                                 android:textColor="#ffffff"
                                 android:layout_weight="80"/>
 
@@ -108,7 +108,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="50"
-                                android:text="OUI .A"
+                                tools:text="OUI .A"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"
                                 android:gravity="center_vertical|right"
@@ -121,7 +121,7 @@
                                 android:layout_weight="50"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="8dp"
-                                android:text="NON .B"
+                                tools:text="NON .B"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"/>
                         </LinearLayout>
@@ -133,10 +133,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="50"
-                        android:orientation="vertical"
-                        android:visibility="visible">
+                        android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/partTwoHeader"
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
@@ -155,7 +155,7 @@
                                 android:layout_weight="80"
                                 android:gravity="left|center_vertical"
                                 android:padding="4dp"
-                                android:text="Il peut changer de couleur :"
+                                tools:text="Il peut changer de couleur :"
                                 android:textColor="#ffffff"
                                 android:visibility="gone"
                                 tools:visibility="visible"/>
@@ -173,7 +173,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="50"
-                                android:text="OUI .C"
+                                tools:text="OUI .C"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"
                                 android:visibility="gone"
@@ -188,7 +188,7 @@
                                 android:layout_weight="50"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="8dp"
-                                android:text="NON .D"
+                                tools:text="NON .D"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"
                                 android:visibility="gone"

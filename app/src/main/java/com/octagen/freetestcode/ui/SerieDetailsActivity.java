@@ -76,6 +76,8 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
     @Bind(R.id.partTwoLayout)
     LinearLayout partTwoLayout;
+    @Bind(R.id.partTwoHeader)
+    LinearLayout partTwoHeader;
 
     /**
      * The list of questions related to the current series.
@@ -120,9 +122,9 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
     private void parseQuestionsFromAssets() {
         try {
-            JSONObject object = new JSONObject(ParseUtils.loadJSONFromAsset(this, "test.json"));
-            Log.i("JSON", object.toString());
-            JSONArray questions = object.getJSONArray("questions");
+            JSONArray series = new JSONArray(ParseUtils.loadJSONFromAsset(this, "test.json"));
+            Log.i("JSON", series.toString());
+            JSONArray questions = series.getJSONObject(0).getJSONArray("Questions");
             mQuestions = ParseUtils.parseQuestions(questions);
 
             Log.i("JSON", "Parsed: " + mQuestions);
@@ -158,11 +160,13 @@ public class SerieDetailsActivity extends ActionbarActivity {
             e.printStackTrace();
         }
         Log.i("SELECTED", "Result JSON: " + object);
+        jsonArray.put(object);
     }
 
     private void checkForFinish() {
-        if (currentQIndex >= mQuestions.size())
-            finish();
+        if (currentQIndex >= mQuestions.size()) {
+            Log.i("SAVE", "Final JSON: " + jsonArray);
+        }
         else {
             Toast.makeText(this, "Passing to next question in 3 seconds...",
                     Toast.LENGTH_SHORT).show();
@@ -316,11 +320,21 @@ public class SerieDetailsActivity extends ActionbarActivity {
                 target.setText(String.format("%s .%s", answer.getText(), suffix));
             }
         } else {
-            partTwoLayout.setVisibility(View.GONE);
-
             List<Answer> answers = currentQ.getAnswers();
-            Log.i("SIZE", answers.size() + "-#");
-            for (int i = 0; i < answers.size(); i++) {
+            int nbrOfAnswers = answers.size();
+            Log.i("SIZE", nbrOfAnswers + "-#");
+
+            if (nbrOfAnswers > 2) {
+                partTwoLayout.setVisibility(View.VISIBLE);
+                partTwoHeader.setVisibility(View.GONE);
+
+                choiceThree.setVisibility(View.VISIBLE);
+                choiceFour.setVisibility(View.VISIBLE);
+            }
+            else
+                partTwoLayout.setVisibility(View.GONE);
+
+            for (int i = 0; i < nbrOfAnswers; i++) {
                 Log.i("SIZE", "I is: " + i);
                 Answer answer = answers.get(i);
                 TextView target = null;
@@ -333,6 +347,14 @@ public class SerieDetailsActivity extends ActionbarActivity {
                     case 1:
                         target = choiceTwo;
                         suffix = "B";
+                        break;
+                    case 2:
+                        target = choiceThree;
+                        suffix = "C";
+                        break;
+                    case 3:
+                        target = choiceFour;
+                        suffix = "D";
                         break;
                 }
 
