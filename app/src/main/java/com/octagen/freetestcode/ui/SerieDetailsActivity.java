@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -168,15 +167,10 @@ public class SerieDetailsActivity extends ActionbarActivity {
             Log.i("SAVE", "Final JSON: " + jsonArray);
         }
         else {
-            Toast.makeText(this, "Passing to next question in 3 seconds...",
+            Toast.makeText(this, "Next question...",
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    toggleUI();
-                    reset();
-                }
-            }, 3000);
+            toggleUI();
+            reset();
         }
     }
 
