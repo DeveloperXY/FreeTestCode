@@ -1,5 +1,6 @@
 package com.octagen.freetestcode.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -17,12 +18,14 @@ import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.models.Answer;
 import com.octagen.freetestcode.models.QContent;
 import com.octagen.freetestcode.models.Question;
+import com.octagen.freetestcode.utils.History;
 import com.octagen.freetestcode.utils.ParseUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,6 +95,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
      * The list of currently selected choices.
      */
     private Set<Integer> mSelectedSet;
+    private Set<Integer> mSelectedIDs;
 
     /**
      * The index of the currently displayed question.
@@ -151,8 +155,9 @@ public class SerieDetailsActivity extends ActionbarActivity {
         Question question = mQuestions.get(currentQIndex);
         JSONObject object = new JSONObject();
         try {
-            object.put("questionID", question.getId());
-            object.put("isValid", question.isCorrect(mSelectedSet));
+            object.put("questionID", currentQIndex + 1);
+            Log.i("SELECTED", "CURRENT SET: " + mSelectedSet);
+            object.put("isValid", question.isCorrect(mSelectedIDs));
             object.put("validAnswers", ParseUtils.parseAnswers(question.getValidAnswers()));
             object.put("selectedAnswers", ParseUtils.parseAnswers(mSelectedSet));
         } catch (JSONException e) {
@@ -165,6 +170,28 @@ public class SerieDetailsActivity extends ActionbarActivity {
     private void checkForFinish() {
         if (currentQIndex >= mQuestions.size()) {
             Log.i("SAVE", "Final JSON: " + jsonArray);
+
+            JSONObject object = new JSONObject();
+            try {
+                object.put("category", "A");
+                object.put("details", jsonArray);
+
+                Calendar c = Calendar.getInstance();
+                String Time = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
+                String Date = c.get(Calendar.DAY_OF_MONTH) + "/" + (c.get(Calendar.MONTH)+1) + "/" + c.get(Calendar.YEAR);
+
+                object.put("time", Time);
+                object.put("date", Date);
+
+                History h = new History(this);
+                h.AddHistorique(object.toString());
+                Log.i("HISTORY", "Details saved to sqlite history.");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            startActivity(new Intent(this, ResultsActivity.class));
+            finish();
         }
         else {
             Toast.makeText(this, "Next question...",
@@ -180,6 +207,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
     private void reset() {
         mSelectedSet = new TreeSet<>();
+        mSelectedIDs = new TreeSet<>();
 
         int color = getResources().getColor(R.color.notselectedNumberColor);
         selectedOne.setBackgroundColor(color);
@@ -195,22 +223,31 @@ public class SerieDetailsActivity extends ActionbarActivity {
     @OnClick({R.id.answerOne, R.id.answerTwo, R.id.answerThree, R.id.answerFour})
     public void onAnswerSelected(View view) {
         CustomTextView target = null;
+        Question currentQ = mQuestions.get(currentQIndex);
+        List<Answer> answers = currentQ.getAnswers();
+        int choiceCount = answers.size();
 
         switch (view.getId()) {
             case R.id.answerOne:
                 mSelectedSet.add(1);
+                mSelectedIDs.add(answers.get(0).getId());
                 target = selectedOne;
                 break;
             case R.id.answerTwo:
                 mSelectedSet.add(2);
+                mSelectedIDs.add(answers.get(1).getId());
                 target = selectedTwo;
                 break;
             case R.id.answerThree:
                 mSelectedSet.add(3);
+                int id = choiceCount <= 3 ? answers.get(2).getId() : -1;
+                mSelectedIDs.add(id);
                 target = selectedThree;
                 break;
             case R.id.answerFour:
                 mSelectedSet.add(4);
+                int idd = choiceCount <= 4 ? answers.get(3).getId() : -1;
+                mSelectedIDs.add(idd);
                 target = selectedFour;
                 break;
         }
@@ -226,6 +263,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
         jsonArray = new JSONArray();
         mSelectedMap = new HashMap<>();
         mSelectedSet = new TreeSet<>();
+        mSelectedIDs = new TreeSet<>();
         countDownTimer = new CustomCountDownTimer(QUESTION_SECONDS * 1000, 1000);
 
         toggleUI();

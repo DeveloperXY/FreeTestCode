@@ -31,14 +31,19 @@
                 android:layout_weight="15">
             </RelativeLayout>
 
-            <GridLayout
-                android:id="@+id/answersGrid"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="70"
-                android:columnCount="3"
-                android:orientation="horizontal">
-            </GridLayout>
+                android:layout_weight="70">
+
+                <GridLayout
+                    android:id="@+id/answersGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="3"
+                    android:orientation="horizontal"/>
+
+            </ScrollView>
 
             <RelativeLayout
                 android:layout_width="match_parent"

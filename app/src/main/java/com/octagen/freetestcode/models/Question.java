@@ -68,8 +68,11 @@ public class Question {
         List<Answer> answerList = new ArrayList<>(getCorrectAnswers());
         int i = 0;
         while (iterator.hasNext()) {
-            if (iterator.next() != answerList.get(i++).getId())
+            if (iterator.next() != answerList.get(i++).getId()) {
+                Log.i("isCorrect", "AnswerList: " + answerList);
+                Log.i("isCorrect", "Returning false...");
                 return false;
+            }
         }
 
         Log.i("isCorrect", "Returning true...");
@@ -82,7 +85,7 @@ public class Question {
         for (int i = 0; i < answers.size(); i++) {
             Answer answer = answers.get(i);
             if (answer.isValid())
-                set.add(answer.getId());
+                set.add(i + 1);
         }
 
         return set;
