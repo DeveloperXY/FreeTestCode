@@ -24,6 +24,7 @@ public abstract class ActionbarActivity extends AppCompatActivity
     protected int actionbarColor;
     @DrawableRes
     protected int actionbarImage;
+    protected String actionbarTitle;
 
     @Override
     public void onReturnPressed() {
@@ -34,7 +35,7 @@ public abstract class ActionbarActivity extends AppCompatActivity
         Intent intent = getIntent();
         actionbarColor = intent.getIntExtra("color", -1);
         actionbarImage = intent.getIntExtra("image", -1);
-        String actionbarTitle = intent.getStringExtra("title");
+        actionbarTitle = intent.getStringExtra("title");
 
         if (actionbarImage == -1) {
             throw new IllegalArgumentException(

@@ -26,9 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -81,15 +79,12 @@ public class SerieDetailsActivity extends ActionbarActivity {
     @Bind(R.id.partTwoHeader)
     LinearLayout partTwoHeader;
 
+    private boolean isFinishing = false;
+
     /**
      * The list of questions related to the current series.
      */
     private List<Question> mQuestions;
-
-    /**
-     * A map representing the list of selected choices, indexed by question ID.
-     */
-    private Map<Integer, Set<Integer>> mSelectedMap;
 
     /**
      * The list of currently selected choices.
@@ -144,7 +139,6 @@ public class SerieDetailsActivity extends ActionbarActivity {
             countDownTimer.cancel();
 
             saveCurrentQuestion();
-            mSelectedMap.put(currentQIndex, mSelectedSet);
             currentQIndex++;
 
             checkForFinish();
@@ -178,7 +172,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
                 Calendar c = Calendar.getInstance();
                 String Time = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
-                String Date = c.get(Calendar.DAY_OF_MONTH) + "/" + (c.get(Calendar.MONTH)+1) + "/" + c.get(Calendar.YEAR);
+                String Date = c.get(Calendar.DAY_OF_MONTH) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR);
 
                 object.put("time", Time);
                 object.put("date", Date);
@@ -190,10 +184,14 @@ public class SerieDetailsActivity extends ActionbarActivity {
                 e.printStackTrace();
             }
 
-            startActivity(new Intent(this, ResultsActivity.class));
+            Intent intent = new Intent(this, ResultsActivity.class);
+            intent.putExtra("color", actionbarColor);
+            intent.putExtra("image", actionbarImage);
+            intent.putExtra("title", actionbarTitle);
+            isFinishing = true;
             finish();
-        }
-        else {
+            startActivity(intent);
+        } else {
             Toast.makeText(this, "Next question...",
                     Toast.LENGTH_SHORT).show();
             toggleUI();
@@ -240,13 +238,13 @@ public class SerieDetailsActivity extends ActionbarActivity {
                 break;
             case R.id.answerThree:
                 mSelectedSet.add(3);
-                int id = choiceCount <= 3 ? answers.get(2).getId() : -1;
+                int id = choiceCount > 2 ? answers.get(2).getId() : -1;
                 mSelectedIDs.add(id);
                 target = selectedThree;
                 break;
             case R.id.answerFour:
                 mSelectedSet.add(4);
-                int idd = choiceCount <= 4 ? answers.get(3).getId() : -1;
+                int idd = choiceCount > 3 ? answers.get(3).getId() : -1;
                 mSelectedIDs.add(idd);
                 target = selectedFour;
                 break;
@@ -261,7 +259,6 @@ public class SerieDetailsActivity extends ActionbarActivity {
     private void setupUI() {
         currentQIndex = 0;
         jsonArray = new JSONArray();
-        mSelectedMap = new HashMap<>();
         mSelectedSet = new TreeSet<>();
         mSelectedIDs = new TreeSet<>();
         countDownTimer = new CustomCountDownTimer(QUESTION_SECONDS * 1000, 1000);
@@ -282,7 +279,10 @@ public class SerieDetailsActivity extends ActionbarActivity {
     protected void onPause() {
         super.onPause();
 
-        mediaPlayer.pause();
+        if (isFinishing)
+            mediaPlayer.release();
+        else
+            mediaPlayer.pause();
     }
 
     /**
@@ -362,8 +362,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
                 choiceThree.setVisibility(View.VISIBLE);
                 choiceFour.setVisibility(View.VISIBLE);
-            }
-            else
+            } else
                 partTwoLayout.setVisibility(View.GONE);
 
             for (int i = 0; i < nbrOfAnswers; i++) {
@@ -427,7 +426,6 @@ public class SerieDetailsActivity extends ActionbarActivity {
             timerLabel.setText("0");
 
             saveCurrentQuestion();
-            mSelectedMap.put(currentQIndex, mSelectedSet);
             currentQIndex++;
             checkForFinish();
         }
