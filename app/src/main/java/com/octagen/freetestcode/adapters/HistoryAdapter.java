@@ -40,7 +40,7 @@ public class HistoryAdapter extends BaseSearchAdapter<HistoryAdapter.HistoryView
 
         @Override
         public void bind(HistoryItem item) {
-            
+
         }
     }
 }
