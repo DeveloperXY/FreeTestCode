@@ -225,6 +225,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="onSettingsPressed"
         android:src="@drawable/ic_settings"/>
 
 </RelativeLayout>

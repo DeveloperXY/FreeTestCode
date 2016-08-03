@@ -8,6 +8,9 @@
     <color name="yellow">#e9a92f</color>
     <color name="lightRed">#d5afb0</color>
     <color name="lightYellow">#eddcbc</color>
+    <color name="pressedGreen">#991f9a14</color>
+    <color name="pressedRed">#99a81522</color>
+    <color name="pressedYellow">#99e9a92f</color>
     <color name="historyGreen">#b9d7b4</color>
     <color name="redActionbar">#BB7076</color>
     <color name="yellowActionbar">@color/yellow</color>

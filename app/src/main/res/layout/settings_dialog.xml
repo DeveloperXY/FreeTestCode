@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:costum="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:background="@drawable/clickable_yellow"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40"
+            android:gravity="center_vertical|right">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="50"
+                android:src="@drawable/ic_settings"/>
+        </RelativeLayout>
+
+        <com.octagen.customviews.CustomTextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="50"
+            android:gravity="left|center_vertical"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            costum:Font="cent.TTF"
+            costum:Frensh="Réglages"
+            costum:Size="18"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.octagen.customviews.CustomTextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="@drawable/clickable_red"
+            android:clickable="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            costum:Font="cent.TTF"
+            costum:Frensh="Français"
+            costum:Size="18"/>
+
+        <com.octagen.customviews.CustomTextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="50"
+            android:background="@drawable/clickable_red"
+            android:clickable="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            costum:Font="cent.TTF"
+            costum:Frensh="العربية"
+            costum:Size="18"/>
+
+    </LinearLayout>
+
+    <com.octagen.customviews.CustomTextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:background="@drawable/clickable_green"
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        costum:Font="cent.TTF"
+        costum:Frensh="Support"
+        costum:Size="18"/>
+</LinearLayout>

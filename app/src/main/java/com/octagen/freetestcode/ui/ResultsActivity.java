@@ -1,9 +1,11 @@
 package com.octagen.freetestcode.ui;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.custom.ReponseItem;
 import com.octagen.freetestcode.utils.History;
@@ -21,6 +23,8 @@ public class ResultsActivity extends ActionbarActivity {
     GridLayout answersGrid;
     @Bind(R.id.ratioLabel)
     TextView ratioLabel;
+    @Bind(R.id.homeLabel)
+    TextView homeLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +59,16 @@ public class ResultsActivity extends ActionbarActivity {
                 answersGrid.addView(item);
             }
 
+            ratioLabel.setTypeface(TypeFaces.getTypeFace(this, "fonts/cent.TTF"));
+            homeLabel.setTypeface(TypeFaces.getTypeFace(this, "fonts/cent.TTF"));
             ratioLabel.setText(String.format("%d/%d", validCount, qCount));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onHomePressed(View view) {
+        finish();
     }
 }

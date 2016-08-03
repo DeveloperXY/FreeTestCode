@@ -38,29 +38,73 @@
                     android:id="@+id/ratioLabel"
                     android:gravity="center"
                     android:textColor="@color/yellow"
-                    android:textSize="36sp"
+                    android:textSize="48sp"
                     android:textStyle="bold"/>
             </RelativeLayout>
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="70">
+                android:layout_weight="75">
 
-                <GridLayout
-                    android:id="@+id/answersGrid"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:columnCount="3"
-                    android:orientation="horizontal"/>
+                    android:layout_height="wrap_content">
+
+                    <GridLayout
+                        android:id="@+id/answersGrid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3"
+                        android:orientation="horizontal"
+                        android:background="#ff0000"/>
+
+                </RelativeLayout>
 
             </ScrollView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="15">
-            </RelativeLayout>
+                android:layout_weight="1"
+                android:background="@color/yellow"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+                android:id="@+id/homeLayout"
+                android:onClick="onHomePressed">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView"
+                        android:layout_weight="40"
+                        android:src="@drawable/ic_home_menu"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Accueil"
+                    android:id="@+id/homeLabel"
+                    android:layout_weight="60"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/yellow"
+                    android:textStyle="bold"
+                    android:textSize="24sp"/>
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

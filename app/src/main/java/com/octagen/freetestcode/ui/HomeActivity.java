@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
+import com.octagen.freetestcode.ui.dialogs.SettingsDialog;
 import com.octagen.freetestcode.utils.CalculateScreenSize;
 
 import butterknife.Bind;
@@ -73,5 +74,10 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra("image", image);
         intent.putExtra("color", color);
         startActivity(intent);
+    }
+
+    public void onSettingsPressed(View view) {
+        SettingsDialog settingsDialog = new SettingsDialog(this);
+        settingsDialog.show();
     }
 }
