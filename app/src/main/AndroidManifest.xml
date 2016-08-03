@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".ui.ResultsActivity">
         </activity>
+        <activity android:name=".ui.HistoryActivity">
+        </activity>
     </application>
 
 </manifest>

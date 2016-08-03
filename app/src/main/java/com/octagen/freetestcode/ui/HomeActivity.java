@@ -80,4 +80,8 @@ public class HomeActivity extends AppCompatActivity {
         SettingsDialog settingsDialog = new SettingsDialog(this);
         settingsDialog.show();
     }
+
+    public void onHistoryPressed(View view) {
+        startActivity(new Intent(this, HistoryActivity.class));
+    }
 }
