@@ -164,6 +164,7 @@ public class SerieDetailsActivity extends ActionbarActivity {
     private void checkForFinish() {
         if (currentQIndex >= mQuestions.size()) {
             Log.i("SAVE", "Final JSON: " + jsonArray);
+            int qCount = jsonArray.length();
 
             JSONObject object = new JSONObject();
             try {
@@ -176,6 +177,8 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
                 object.put("time", Time);
                 object.put("date", Date);
+                object.put("serie", actionbarTitle);
+                object.put("ratio", calculateRatio(qCount));
 
                 History h = new History(this);
                 h.AddHistorique(object.toString());
@@ -197,6 +200,26 @@ public class SerieDetailsActivity extends ActionbarActivity {
             toggleUI();
             reset();
         }
+    }
+
+    private String calculateRatio(int qCount) {
+        try {
+            int validCount = 0; // the number of correctly answered questions
+            for (int i = 0; i < qCount; i++) {
+                JSONObject question = null;
+                question = jsonArray.getJSONObject(i);
+                boolean isValid = question.getBoolean("isValid");
+
+                if (isValid)
+                    validCount++;
+            }
+
+            return String.format("%d/%d", validCount, qCount);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return "non valid ratio"; // should never be reached
     }
 
     public void onCorrect(View view) {
