@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.custom.ReponseItem;
-import com.octagen.freetestcode.utils.History;
+import com.octagen.freetestcode.utils.DatabaseAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +34,7 @@ public class ResultsActivity extends ActionbarActivity {
 
         setupActionBar();
 
-        History h = new History(this);
+        DatabaseAdapter h = new DatabaseAdapter(this);
         try {
             JSONObject data = new JSONObject(h.GetLastHistorique());
             JSONArray questions = data.getJSONArray("details");

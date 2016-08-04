@@ -18,7 +18,7 @@ import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.models.Answer;
 import com.octagen.freetestcode.models.QContent;
 import com.octagen.freetestcode.models.Question;
-import com.octagen.freetestcode.utils.History;
+import com.octagen.freetestcode.utils.DatabaseAdapter;
 import com.octagen.freetestcode.utils.ParseUtils;
 
 import org.json.JSONArray;
@@ -168,19 +168,20 @@ public class SerieDetailsActivity extends ActionbarActivity {
 
             JSONObject object = new JSONObject();
             try {
-                object.put("category", "A");
+                object.put("category", getIntent().getStringExtra("category"));
                 object.put("details", jsonArray);
 
                 Calendar c = Calendar.getInstance();
                 String Time = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
                 String Date = c.get(Calendar.DAY_OF_MONTH) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR);
 
+                object.put("image", actionbarImage);
                 object.put("time", Time);
                 object.put("date", Date);
                 object.put("serie", actionbarTitle);
                 object.put("ratio", calculateRatio(qCount));
 
-                History h = new History(this);
+                DatabaseAdapter h = new DatabaseAdapter(this);
                 h.AddHistorique(object.toString());
                 Log.i("HISTORY", "Details saved to sqlite history.");
             } catch (JSONException e) {

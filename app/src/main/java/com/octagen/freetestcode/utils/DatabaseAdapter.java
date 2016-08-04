@@ -6,10 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.octagen.freetestcode.models.HistoryItem;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Ismail Amrani on 11/03/2016.
  */
-public class History extends SQLiteOpenHelper {
+public class DatabaseAdapter extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "HISTORIQUE";
@@ -18,7 +26,7 @@ public class History extends SQLiteOpenHelper {
     private static final String KEY_ID = "ID";
     private static final String JSON = "JSON";
 
-    public History(Context context) {
+    public DatabaseAdapter(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -48,18 +56,7 @@ public class History extends SQLiteOpenHelper {
         db.close();
     }
 
-    public String GetHistorique (int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE, new String[]{KEY_ID, JSON}, KEY_ID + "=?",
-                new String[]{String.valueOf(id)}, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        return cursor.getString(1);
-    }
-
-    public String GetLastHistorique(){
+    public String GetLastHistorique() {
         int count;
         String countQuery = "SELECT  * FROM " + TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -74,5 +71,36 @@ public class History extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         return cursor.getString(1);
+    }
+
+    public List<HistoryItem> getAllHistoryRecords() {
+        List<HistoryItem> itemList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE,
+                new String[]{KEY_ID, JSON}, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                try {
+                    JSONObject data = new JSONObject(cursor.getString(1));
+
+                    itemList.add(new HistoryItem(
+                            id,
+                            data.getInt("image"),
+                            data.getString("time"),
+                            data.getString("date"),
+                            data.getString("category"),
+                            data.getString("serie"),
+                            data.getString("ratio")
+                    ));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } while (cursor.moveToNext());
+        }
+
+        return itemList;
     }
 }

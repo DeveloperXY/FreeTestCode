@@ -58,6 +58,7 @@ public class SeriesActivity extends ActionbarActivity {
                     Intent intent = new Intent(SeriesActivity.this, SerieDetailsActivity.class);
                     intent.putExtra("color", actionbarColor);
                     intent.putExtra("image", actionbarImage);
+                    intent.putExtra("category", actionbarTitle);
                     intent.putExtra("title", mSeries.get(position).getLabel());
                     startActivity(intent);
                 }
