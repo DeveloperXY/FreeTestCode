@@ -37,10 +37,6 @@ public abstract class ActionbarActivity extends AppCompatActivity
         actionbarImage = intent.getIntExtra("image", -1);
         actionbarTitle = intent.getStringExtra("title");
 
-        if (actionbarImage == -1) {
-            throw new IllegalArgumentException(
-                    "You need to pass an image for the custom action bar.");
-        }
         if (actionbarColor == -1) {
             throw new IllegalArgumentException(
                     "You need to pass a color for the custom action bar.");
@@ -48,7 +44,11 @@ public abstract class ActionbarActivity extends AppCompatActivity
 
         mActionBar.setListener(this);
         mActionBar.setLibelle(actionbarTitle);
-        mActionBar.setImage(actionbarImage);
         mActionBar.setColor(actionbarColor);
+
+        if (actionbarImage != -1)
+            mActionBar.setImage(actionbarImage);
+        else
+            mActionBar.hideImage();
     }
 }

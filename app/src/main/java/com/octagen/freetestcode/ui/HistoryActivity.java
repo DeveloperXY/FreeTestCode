@@ -9,17 +9,23 @@ import com.octagen.freetestcode.utils.DatabaseAdapter;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 public class HistoryActivity extends ActionbarActivity {
 
+    private List<HistoryItem> mHistoryItems;
     private DatabaseAdapter mDatabaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        ButterKnife.bind(this);
+
+        setupActionBar();
 
         mDatabaseAdapter = new DatabaseAdapter(this);
-        List<HistoryItem> historyItems = mDatabaseAdapter.getAllHistoryRecords();
-        Log.i("HISTORY", historyItems + "");
+        mHistoryItems = mDatabaseAdapter.getAllHistoryRecords();
+        Log.i("HISTORY", mHistoryItems + "");
     }
 }

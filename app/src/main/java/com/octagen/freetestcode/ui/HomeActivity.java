@@ -82,6 +82,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onHistoryPressed(View view) {
-        startActivity(new Intent(this, HistoryActivity.class));
+        Intent intent = new Intent(this, HistoryActivity.class);
+        intent.putExtra("color", R.color.redActionbar);
+        intent.putExtra("title", "Historique");
+        startActivity(intent);
     }
 }

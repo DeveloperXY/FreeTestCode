@@ -51,6 +51,10 @@ public class ActionBar extends RelativeLayout {
         addView(Layout);
     }
 
+    public void hideImage() {
+        Image.setVisibility(GONE);
+    }
+
     public void setImage(int Source) {
         Image.setImageResource(Source);
     }
