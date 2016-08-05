@@ -18,16 +18,18 @@
 
         <include layout="@layout/actionbar_include"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="226"
-            android:orientation="vertical"
-            android:weightSum="100">
+            android:layout_weight="226">
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/historyRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"/>
 
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

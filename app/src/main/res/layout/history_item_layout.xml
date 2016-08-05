@@ -1,84 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:costum="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="80dp"
               android:alpha="0.8"
               android:background="@color/serieItemColor"
-              android:orientation="horizontal">
+              android:orientation="horizontal"
+              android:padding="4dp">
 
-    <ImageView
-        android:id="@+id/historyImg"
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_route_img"
-        android:layout_weight="15"/>
+        android:layout_weight="15"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/historyImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_route_img"
+            />
+    </RelativeLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="35">
+        android:layout_weight="35"
+        android:orientation="vertical">
 
-        <TextView
+        <com.octagen.customviews.CustomTextView
+            android:id="@+id/timeLabel"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="10:00"
-            android:id="@+id/timeLabel"
             android:layout_weight="50"
             android:gravity="bottom|center_horizontal"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            costum:Font="cent.TTF"
+            costum:Size="16"
+            tools:text="10:00"/>
 
-        <TextView
+        <com.octagen.customviews.CustomTextView
+            android:id="@+id/dateLabel"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="03/08/2016"
-            android:id="@+id/dateLabel"
             android:layout_weight="50"
             android:gravity="top|center_horizontal"
+            android:text="03/08/2016"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            costum:Font="cent.TTF"
+            costum:Size="18"
+            tools:text="04/08/2016"/>
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="35">
+        android:layout_weight="35"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="Motocycle"
+        <com.octagen.customviews.CustomTextView
             android:id="@+id/categoryLabel"
-            android:layout_weight="50"
-            android:textColor="@color/yellow"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="bottom|center_horizontal"/>
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Série 1"
+            android:layout_weight="50"
+            android:gravity="bottom|center_horizontal"
+            android:textColor="@color/yellow"
+            android:textStyle="bold"
+            costum:Font="cent.TTF"
+            costum:Size="18"
+            tools:text="Motocycle"/>
+
+        <com.octagen.customviews.CustomTextView
             android:id="@+id/serieLabel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="50"
             android:gravity="top|center_horizontal"
             android:textColor="#ffffff"
-            android:textSize="18sp"/>
+            costum:Font="cent.TTF"
+            costum:Size="18"
+            tools:text="Série 1"/>
     </LinearLayout>
 
-    <TextView
+    <com.octagen.customviews.CustomTextView
+        android:id="@+id/ratioLabel"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="4/12"
-        android:id="@+id/ratioLabel"
         android:layout_weight="15"
         android:gravity="center"
         android:textColor="@color/yellow"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        costum:Font="cent.TTF"
+        costum:Size="18"
+        tools:text="4/12"/>
 
 </LinearLayout>
