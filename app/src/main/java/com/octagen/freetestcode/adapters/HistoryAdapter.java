@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 public class HistoryAdapter extends BaseSearchAdapter<HistoryAdapter.HistoryViewHolder, HistoryItem> {
 
     private Context mContext;
+    private HistoryListener mHistoryListener;
 
     public HistoryAdapter(Context context, List<HistoryItem> items) {
         super(context, items);
@@ -55,6 +56,15 @@ public class HistoryAdapter extends BaseSearchAdapter<HistoryAdapter.HistoryView
         public HistoryViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mHistoryListener != null) {
+                        mHistoryListener.onItemSelected(mItems.get(getAdapterPosition()));
+                    }
+                }
+            });
         }
 
         @Override
@@ -66,5 +76,13 @@ public class HistoryAdapter extends BaseSearchAdapter<HistoryAdapter.HistoryView
             serieLabel.setText(item.getSerie());
             ratioLabel.setText(item.getRatio());
         }
+    }
+
+    public void setHistoryListener(HistoryListener historyListener) {
+        mHistoryListener = historyListener;
+    }
+
+    public interface HistoryListener {
+        void onItemSelected(HistoryItem item);
     }
 }

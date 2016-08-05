@@ -36,7 +36,10 @@ public class ResultsActivity extends ActionbarActivity {
 
         DatabaseAdapter h = new DatabaseAdapter(this);
         try {
-            JSONObject data = new JSONObject(h.GetLastHistorique());
+            int historyID = getIntent().getIntExtra("historyID", -1);
+            String historyData = historyID == -1 ?
+                    h.GetLastHistorique() : h.getHistory(historyID);
+            JSONObject data = new JSONObject(historyData);
             JSONArray questions = data.getJSONArray("details");
             int qCount = questions.length();
             int validCount = 0; // the number of correctly answered questions

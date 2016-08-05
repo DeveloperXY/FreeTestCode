@@ -73,6 +73,18 @@ public class DatabaseAdapter extends SQLiteOpenHelper {
         return cursor.getString(1);
     }
 
+    public String getHistory (int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE,
+                new String[]{KEY_ID, JSON}, KEY_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        return cursor.getString(1);
+    }
+
     public List<HistoryItem> getAllHistoryRecords() {
         List<HistoryItem> itemList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();

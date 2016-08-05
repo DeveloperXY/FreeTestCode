@@ -1,5 +1,6 @@
 package com.octagen.freetestcode.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,6 +49,17 @@ public class HistoryActivity extends ActionbarActivity {
     private void populateRecyclerView() {
         if (mHistoryAdapter == null) {
             mHistoryAdapter = new HistoryAdapter(this, mHistoryItems);
+            mHistoryAdapter.setHistoryListener(new HistoryAdapter.HistoryListener() {
+                @Override
+                public void onItemSelected(HistoryItem item) {
+                    Intent intent = new Intent(HistoryActivity.this, ResultsActivity.class);
+                    intent.putExtra("historyID", item.getId());
+                    intent.putExtra("color", actionbarColor);
+                    intent.putExtra("image", item.getImage());
+                    intent.putExtra("title", item.getSerie());
+                    startActivity(intent);
+                }
+            });
             historyRecyclerView.setAdapter(mHistoryAdapter);
         } else
             mHistoryAdapter.animateTo(mHistoryItems);
