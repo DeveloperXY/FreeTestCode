@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.Pair;
+import android.view.View;
 
 import com.octagen.freetestcode.R;
 import com.octagen.freetestcode.adapters.HistoryAdapter;
 import com.octagen.freetestcode.models.HistoryItem;
+import com.octagen.freetestcode.utils.ActivityTransition;
 import com.octagen.freetestcode.utils.DatabaseAdapter;
 import com.octagen.freetestcode.utils.decorations.SpacesItemDecoration;
 
@@ -51,13 +54,15 @@ public class HistoryActivity extends ActionbarActivity {
             mHistoryAdapter = new HistoryAdapter(this, mHistoryItems);
             mHistoryAdapter.setHistoryListener(new HistoryAdapter.HistoryListener() {
                 @Override
-                public void onItemSelected(HistoryItem item) {
+                public void onItemSelected(HistoryItem item, Pair<View, String>... animatedViews) {
                     Intent intent = new Intent(HistoryActivity.this, ResultsActivity.class);
                     intent.putExtra("historyID", item.getId());
                     intent.putExtra("color", actionbarColor);
                     intent.putExtra("image", item.getImage());
                     intent.putExtra("title", item.getSerie());
-                    startActivity(intent);
+
+                    ActivityTransition.startActivityWithMultipleSharedElements(
+                            HistoryActivity.this, intent, animatedViews);
                 }
             });
             historyRecyclerView.setAdapter(mHistoryAdapter);

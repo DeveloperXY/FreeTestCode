@@ -20,13 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_route_img"
+            android:transitionName="catImgAnim"
             />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="35"
+        android:layout_weight="40"
         android:orientation="vertical">
 
         <com.octagen.customviews.CustomTextView
@@ -60,7 +61,8 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="35"
+        android:layout_marginLeft="8dp"
+        android:layout_weight="30"
         android:orientation="vertical">
 
         <com.octagen.customviews.CustomTextView
@@ -68,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
-            android:gravity="bottom|center_horizontal"
+            android:gravity="bottom|left"
             android:textColor="@color/yellow"
             android:textStyle="bold"
             costum:Font="cent.TTF"
@@ -80,8 +82,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
-            android:gravity="top|center_horizontal"
+            android:gravity="top|left"
             android:textColor="#ffffff"
+            android:transitionName="serieAnim"
             costum:Font="cent.TTF"
             costum:Size="18"
             tools:text="Série 1"/>
@@ -95,6 +98,7 @@
         android:gravity="center"
         android:textColor="@color/yellow"
         android:textStyle="bold"
+        android:transitionName="ratioAnim"
         costum:Font="cent.TTF"
         costum:Size="18"
         tools:text="4/12"/>

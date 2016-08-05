@@ -1,6 +1,7 @@
 package com.octagen.freetestcode.adapters;
 
 import android.content.Context;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,11 @@ public class HistoryAdapter extends BaseSearchAdapter<HistoryAdapter.HistoryView
                 @Override
                 public void onClick(View v) {
                     if (mHistoryListener != null) {
-                        mHistoryListener.onItemSelected(mItems.get(getAdapterPosition()));
+                        mHistoryListener.onItemSelected(
+                                mItems.get(getAdapterPosition()),
+                                new Pair<View, String>(historyImg, "catImgAnim"),
+                                new Pair<View, String>(serieLabel, "serieAnim"),
+                                new Pair<View, String>(ratioLabel, "ratioAnim"));
                     }
                 }
             });
@@ -83,6 +88,6 @@ public class HistoryAdapter extends BaseSearchAdapter<HistoryAdapter.HistoryView
     }
 
     public interface HistoryListener {
-        void onItemSelected(HistoryItem item);
+        void onItemSelected(HistoryItem item, Pair<View, String>... animatedViews);
     }
 }

@@ -32,6 +32,7 @@
             android:layout_weight="20"/>
 
         <ImageView
+            android:transitionName="catImgAnim"
             android:id="@+id/Image"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -46,6 +47,7 @@
             android:layout_weight="47">
 
             <com.octagen.customviews.CustomTextView
+                android:transitionName="serieAnim"
                 android:id="@+id/Libelle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
