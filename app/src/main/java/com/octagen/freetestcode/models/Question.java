@@ -15,11 +15,21 @@ public class Question {
     private int id;
     private List<QContent> contents;
     private List<Answer> answers;
+    /**
+     * The file name of the intro sound of the question.
+     */
+    private String introSound;
+    /**
+     * The file name of the question's audio.
+     */
+    private String sound;
 
-    public Question(int id, List<QContent> contents, List<Answer> answers) {
+    public Question(int id, List<QContent> contents, List<Answer> answers, String introSound, String sound) {
         this.id = id;
         this.contents = contents;
         this.answers = answers;
+        this.introSound = introSound;
+        this.sound = sound;
     }
 
     public int getId() {
@@ -44,6 +54,22 @@ public class Question {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public String getIntroSound() {
+        return introSound;
+    }
+
+    public void setIntroSound(String introSound) {
+        this.introSound = introSound;
+    }
+
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
     }
 
     public Set<Answer> getCorrectAnswers() {
@@ -97,6 +123,8 @@ public class Question {
                 "id=" + id +
                 ", contents=" + contents +
                 ", answers=" + answers +
+                ", introSound='" + introSound + '\'' +
+                ", sound='" + sound + '\'' +
                 '}';
     }
 }

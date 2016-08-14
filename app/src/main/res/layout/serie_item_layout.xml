@@ -1,132 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:costum="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="80dp"
               android:alpha="0.8"
               android:background="@color/serieItemColor"
-              android:orientation="vertical">
+              android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="35"
-        android:orientation="horizontal"
-        android:weightSum="100">
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="8"/>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="20"
+        android:padding="4dp"
+        android:gravity="center">
 
         <com.octagen.customviews.CustomTextView
             android:id="@+id/serieID"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:background="@color/serieNumberColor"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            costum:Font="cent.TTF"
-            costum:Size="16"
-            tools:text="1"
-            tools:textSize="16sp"/>
-
-        <com.octagen.customviews.CustomTextView
-            android:id="@+id/serieLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="82"
-            android:gravity="center_vertical|left"
-            android:paddingLeft="8dp"
-            android:textColor="#ffffff"
-            costum:Font="cent.TTF"
-            costum:Size="14"
-            tools:text="Motocycle serie 1"
-            tools:textSize="14sp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="65"
-        android:orientation="horizontal"
-        android:padding="4dp"
-        android:weightSum="100">
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="8"/>
-
-        <LinearLayout
-            android:id="@+id/ratingBar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="30"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/star1"
-                android:layout_weight="33"
-                android:src="@drawable/ic_star_off"/>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/star2"
-                android:layout_weight="33"
-                android:src="@drawable/ic_star_off"/>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/star3"
-                android:layout_weight="33"
-                android:src="@drawable/ic_star_off"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"/>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="15"
-            android:background="@drawable/rating_circle"
-            android:padding="4dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="37/40"
-                android:id="@+id/ratingLabel"
-                android:gravity="center"
-                android:textStyle="bold"/>
-        </RelativeLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"/>
-
-        <Button
-            android:id="@+id/startTestButton"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="40"
-            android:background="@drawable/start_test_btn_back"
-            android:text="Commencer test"
-            android:textAllCaps="false"
+            android:background="@drawable/yellow_ellipse"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
             android:textColor="#ffffff"
-            android:textSize="14sp"
-            android:textStyle="bold"/>
+            android:textSize="24sp"
+            android:textStyle="bold"
+            costum:Font="cent.TTF"
+            costum:Size="24"/>
 
-    </LinearLayout>
+    </RelativeLayout>
+
+    <com.octagen.customviews.CustomTextView
+        android:id="@+id/serieLabel"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="60"
+        android:gravity="center"
+        android:text="Serie 1"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        costum:Font="cent.TTF"
+        costum:Size="16"/>
+
+    <com.octagen.customviews.CustomTextView
+        android:id="@+id/ratingLabel"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="20"
+        android:gravity="center"
+        android:text="18/40"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        costum:Font="cent.TTF"
+        costum:Size="12"/>
+
 </LinearLayout>

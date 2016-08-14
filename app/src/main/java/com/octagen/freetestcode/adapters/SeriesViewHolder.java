@@ -1,9 +1,9 @@
 package com.octagen.freetestcode.adapters;
 
 import android.content.Context;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.octagen.customviews.TypeFaces;
@@ -25,26 +25,23 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
     TextView serieLabel;
     @Bind(R.id.ratingLabel)
     TextView ratingLabel;
-    @Bind(R.id.startTestButton)
-    Button startTestButton;
-    @Bind(R.id.star1)
-    ImageView star1;
-    @Bind(R.id.star2)
-    ImageView star2;
-    @Bind(R.id.star3)
-    ImageView star3;
 
     private SeriesAdapter.SeriesListener mListener;
+    private Context mContext;
+    @ColorRes private int actionbarColor;
 
-    public SeriesViewHolder(View itemView, Context context, SeriesAdapter.SeriesListener listener) {
+    public SeriesViewHolder(View itemView, Context context,
+                            SeriesAdapter.SeriesListener listener,
+                            @ColorRes int actionbarColor) {
         super(itemView);
         mListener = listener;
+        mContext = context;
+        this.actionbarColor = actionbarColor;
         ButterKnife.bind(this, itemView);
 
-        startTestButton.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
         ratingLabel.setTypeface(TypeFaces.getTypeFace(context, "fonts/cent.TTF"));
 
-        startTestButton.setOnClickListener(new View.OnClickListener() {
+        itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null)
@@ -58,41 +55,20 @@ public class SeriesViewHolder extends BinderViewHolder<Serie> {
         serieID.setText(item.getId() + "");
         serieLabel.setText(item.getLabel());
 
-        int ratingValue = item.getRating();
         String rating = item.getRating() == 0 ? "../40" : String.format("%d/40", item.getRating());
         ratingLabel.setText(rating);
 
-        if (ratingValue == 0)
-            colorizeNone(); // not rated yet
-        else if (ratingValue < 30)
-            colorizeRed();
-        else if (ratingValue < 36)
-            colorizeYellow();
-        else
-            colorizeGreen();
-    }
+        @DrawableRes int drawable = -1;
+        switch (actionbarColor) {
+            case R.color.redActionbar:
+                drawable = R.drawable.red_ellipse;
+                break;
+            case R.color.yellowActionbar:
+                drawable = R.drawable.yellow_ellipse;
+                break;
+        }
 
-    private void colorizeNone() {
-        star1.setImageResource(R.drawable.ic_star_off);
-        star2.setImageResource(R.drawable.ic_star_off);
-        star3.setImageResource(R.drawable.ic_star_off);
-    }
-
-    private void colorizeRed() {
-        star1.setImageResource(R.drawable.ic_red_star);
-        star2.setImageResource(R.drawable.ic_red_star);
-        star3.setImageResource(R.drawable.ic_red_star);
-    }
-
-    private void colorizeGreen() {
-        star1.setImageResource(R.drawable.ic_green_star);
-        star2.setImageResource(R.drawable.ic_green_star);
-        star3.setImageResource(R.drawable.ic_green_star);
-    }
-
-    private void colorizeYellow() {
-        star1.setImageResource(R.drawable.ic_yellow_star);
-        star2.setImageResource(R.drawable.ic_yellow_star);
-        star3.setImageResource(R.drawable.ic_yellow_star);
+        serieID.setBackgroundDrawable(
+                mContext.getResources().getDrawable(drawable));
     }
 }

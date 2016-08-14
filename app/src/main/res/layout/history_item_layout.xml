@@ -74,7 +74,7 @@
             android:textColor="@color/yellow"
             android:textStyle="bold"
             costum:Font="cent.TTF"
-            costum:Size="18"
+            costum:Size="14"
             tools:text="Motocycle"/>
 
         <com.octagen.customviews.CustomTextView
@@ -86,7 +86,7 @@
             android:textColor="#ffffff"
             android:transitionName="serieAnim"
             costum:Font="cent.TTF"
-            costum:Size="18"
+            costum:Size="16"
             tools:text="Série 1"/>
     </LinearLayout>
 

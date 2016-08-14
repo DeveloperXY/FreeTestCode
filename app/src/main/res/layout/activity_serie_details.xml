@@ -41,7 +41,6 @@
                 android:background="@drawable/question_gradient_background"
                 android:orientation="horizontal">
 
-
                 <LinearLayout
                     android:id="@+id/questionContentLayout"
                     android:layout_width="0dp"
@@ -57,43 +56,20 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="50">
-
-                            <RelativeLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="20"
-                                >
-
-                                <TextView
-                                    android:id="@+id/questionID"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_alignParentTop="false"
-                                    android:padding="8dp"
-                                    android:text="23"
-                                    android:textColor="#ffffff"
-                                    android:textStyle="bold"
-                                    android:gravity="center_vertical|right"
-                                    android:background="@drawable/yellow_circle"
-                                    android:layout_marginRight="8dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentBottom="false"/>
-                            </RelativeLayout>
+                            android:layout_weight="50"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/partOneText"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:gravity="left|center_vertical"
+                                android:layout_weight="80"
+                                android:gravity="center_vertical|right"
                                 android:padding="4dp"
-                                tools:text="Ce feu est en panne :"
                                 android:textColor="#ffffff"
-                                android:layout_weight="80"/>
+                                tools:text="Ce feu est en panne :"/>
 
                         </LinearLayout>
 
@@ -101,29 +77,31 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="50"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:paddingRight="12dp">
 
                             <TextView
                                 android:id="@+id/choiceOne"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
                                 android:layout_weight="50"
-                                tools:text="OUI .A"
+                                android:gravity="center_vertical|right"
+                                android:paddingRight="12dp"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"
-                                android:gravity="center_vertical|right"
-                                android:paddingRight="12dp"/>
+                                tools:text="NON .B"/>
 
                             <TextView
                                 android:id="@+id/choiceTwo"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
                                 android:layout_weight="50"
-                                android:gravity="left|center_vertical"
-                                android:paddingLeft="8dp"
-                                tools:text="NON .B"
+                                android:gravity="center_vertical|right"
+                                android:paddingRight="12dp"
                                 android:textColor="#ffffff"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                tools:text="OUI .A"/>
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -137,27 +115,21 @@
 
                         <LinearLayout
                             android:id="@+id/partTwoHeader"
-                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="50">
-
-                            <RelativeLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="20">
-                            </RelativeLayout>
+                            android:layout_weight="50"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/partTwoText"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="80"
-                                android:gravity="left|center_vertical"
+                                android:gravity="center_vertical|right"
                                 android:padding="4dp"
-                                tools:text="Il peut changer de couleur :"
                                 android:textColor="#ffffff"
                                 android:visibility="gone"
+                                tools:text="Il peut changer de couleur :"
                                 tools:visibility="visible"/>
 
                         </LinearLayout>
@@ -166,37 +138,64 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="50"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:paddingRight="12dp">
 
                             <TextView
                                 android:id="@+id/choiceThree"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
                                 android:layout_weight="50"
-                                tools:text="OUI .C"
+                                android:gravity="center_vertical|right"
+                                android:paddingRight="12dp"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"
                                 android:visibility="gone"
-                                tools:visibility="visible"
-                                android:gravity="center_vertical|right"
-                                android:paddingRight="12dp"/>
+                                tools:text="NON .D"
+                                tools:visibility="visible"/>
 
                             <TextView
                                 android:id="@+id/choiceFour"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
                                 android:layout_weight="50"
-                                android:gravity="left|center_vertical"
-                                android:paddingLeft="8dp"
-                                tools:text="NON .D"
+                                android:gravity="center_vertical|right"
+                                android:paddingRight="12dp"
                                 android:textColor="#ffffff"
                                 android:textStyle="bold"
                                 android:visibility="gone"
+                                tools:text="OUI .C"
                                 tools:visibility="visible"/>
+
                         </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:gravity="top|right"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/questionID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/yellow_circle"
+                        android:padding="8dp"
+                        android:text="23"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"/>
+                </RelativeLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -211,10 +210,11 @@
                     android:id="@+id/selectedOne"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="4dp"
                     android:layout_weight="25"
-                    android:alpha="0.6"
-                    android:background="@color/notselectedNumberColor"
+                    android:background="#7f7f7f"
                     android:gravity="center"
+                    android:textColor="#7f7f7f"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="1"
@@ -226,26 +226,27 @@
                     android:id="@+id/selectedTwo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="4dp"
                     android:layout_weight="25"
-                    android:alpha="0.6"
-                    android:background="@color/notselectedNumberColor"
+                    android:background="#7f7f7f"
                     android:gravity="center"
+                    android:textColor="#7f7f7f"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="2"
                     costum:Size="24"
                     tools:text="2"
-                    tools:textSize="32sp"
-                    />
+                    tools:textSize="32sp"/>
 
                 <com.octagen.customviews.CustomTextView
                     android:id="@+id/selectedThree"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="4dp"
                     android:layout_weight="25"
-                    android:alpha="0.6"
-                    android:background="@color/notselectedNumberColor"
+                    android:background="#7f7f7f"
                     android:gravity="center"
+                    android:textColor="#7f7f7f"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="3"
@@ -258,16 +259,15 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="25"
-                    android:alpha="0.6"
-                    android:background="@color/notselectedNumberColor"
+                    android:background="#7f7f7f"
                     android:gravity="center"
+                    android:textColor="#7f7f7f"
                     android:textStyle="bold"
                     costum:Font="cent.TTF"
                     costum:Frensh="4"
                     costum:Size="24"
                     tools:text="4"
-                    tools:textSize="32sp"
-                    />
+                    tools:textSize="32sp"/>
 
             </LinearLayout>
 
@@ -381,11 +381,11 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="50"
                     android:background="@drawable/correction_btn_back"
+                    android:onClick="onCorrect"
                     android:text="Correction"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"
-                    android:onClick="onCorrect"/>
+                    android:textSize="24sp"/>
 
                 <Button
                     android:id="@+id/validationBtn"
@@ -393,11 +393,11 @@
                     android:layout_height="match_parent"
                     android:layout_weight="50"
                     android:background="@drawable/validation_btn_back"
+                    android:onClick="onValidate"
                     android:text="Validation"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"
-                    android:onClick="onValidate"/>
+                    android:textSize="24sp"/>
 
             </LinearLayout>
 

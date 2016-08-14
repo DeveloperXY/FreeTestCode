@@ -51,7 +51,7 @@ public class SeriesActivity extends ActionbarActivity {
         mSeries.add(new Serie(4, "Serie 4", 26));
 
         if (mSeriesAdapter == null) {
-            mSeriesAdapter = new SeriesAdapter(this, mSeries);
+            mSeriesAdapter = new SeriesAdapter(this, mSeries, actionbarColor);
             mSeriesAdapter.setSeriesListener(new SeriesAdapter.SeriesListener() {
                 @Override
                 public void onSerieSelected(int position) {

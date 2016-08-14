@@ -3,6 +3,7 @@ package com.octagen.freetestcode.ui;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -231,15 +232,10 @@ public class SerieDetailsActivity extends ActionbarActivity {
         mSelectedSet = new TreeSet<>();
         mSelectedIDs = new TreeSet<>();
 
-        int color = getResources().getColor(R.color.notselectedNumberColor);
-        selectedOne.setBackgroundColor(color);
-        selectedTwo.setBackgroundColor(color);
-        selectedThree.setBackgroundColor(color);
-        selectedFour.setBackgroundColor(color);
-        selectedOne.setTextColor(getResources().getColor(android.R.color.primary_text_light));
-        selectedTwo.setTextColor(getResources().getColor(android.R.color.primary_text_light));
-        selectedThree.setTextColor(getResources().getColor(android.R.color.primary_text_light));
-        selectedFour.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+        selectedOne.setTextColor(Color.parseColor("#7f7f7f"));
+        selectedTwo.setTextColor(Color.parseColor("#7f7f7f"));
+        selectedThree.setTextColor(Color.parseColor("#7f7f7f"));
+        selectedFour.setTextColor(Color.parseColor("#7f7f7f"));
     }
 
     @OnClick({R.id.answerOne, R.id.answerTwo, R.id.answerThree, R.id.answerFour})
@@ -275,7 +271,6 @@ public class SerieDetailsActivity extends ActionbarActivity {
         }
 
         if (target != null) {
-            target.setBackgroundColor(getResources().getColor(R.color.selectedNumberColor));
             target.setTextColor(Color.parseColor("#ffffff"));
         }
     }
@@ -313,11 +308,17 @@ public class SerieDetailsActivity extends ActionbarActivity {
      * Sets the stage for the currently viewed question.
      */
     private void toggleUI() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.q1_l);
+        final Question currentQ = mQuestions.get(currentQIndex);
+        String introSound = currentQ.getIntroSound();
+
+        mediaPlayer = MediaPlayer.create(this,
+                Uri.parse("android.resource://com.octagen.freetestcode/raw/" + introSound));
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                mediaPlayer = MediaPlayer.create(SerieDetailsActivity.this, R.raw.q1);
+                String questionAudio = currentQ.getSound();
+                mediaPlayer = MediaPlayer.create(SerieDetailsActivity.this,
+                        Uri.parse("android.resource://com.octagen.freetestcode/raw/" + questionAudio));
                 mediaPlayer.start();
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
@@ -334,7 +335,6 @@ public class SerieDetailsActivity extends ActionbarActivity {
         timerLabel.setText(QUESTION_SECONDS + "");
         validationBtn.setEnabled(false);
 
-        Question currentQ = mQuestions.get(currentQIndex);
         questionID.setText(currentQ.getId() + "");
         List<QContent> contents = currentQ.getContents();
         QContent first = contents.get(0);
@@ -357,23 +357,23 @@ public class SerieDetailsActivity extends ActionbarActivity {
                 switch (i) {
                     case 0:
                         target = choiceOne;
-                        suffix = "A";
+                        suffix = "1.";
                         break;
                     case 1:
                         target = choiceTwo;
-                        suffix = "B";
+                        suffix = "2.";
                         break;
                     case 2:
                         target = choiceThree;
-                        suffix = "C";
+                        suffix = "3.";
                         break;
                     case 3:
                         target = choiceFour;
-                        suffix = "D";
+                        suffix = "4.";
                         break;
                 }
 
-                target.setText(String.format("%s .%s", answer.getText(), suffix));
+                target.setText(String.format("%s %s", suffix, answer.getText()));
             }
         } else {
             List<Answer> answers = currentQ.getAnswers();
@@ -397,23 +397,23 @@ public class SerieDetailsActivity extends ActionbarActivity {
                 switch (i) {
                     case 0:
                         target = choiceOne;
-                        suffix = "A";
+                        suffix = "1.";
                         break;
                     case 1:
                         target = choiceTwo;
-                        suffix = "B";
+                        suffix = "2.";
                         break;
                     case 2:
                         target = choiceThree;
-                        suffix = "C";
+                        suffix = "3.";
                         break;
                     case 3:
                         target = choiceFour;
-                        suffix = "D";
+                        suffix = "4.";
                         break;
                 }
 
-                target.setText(String.format("%s .%s", answer.getText(), suffix));
+                target.setText(String.format("%s %s", suffix, answer.getText()));
             }
         }
     }

@@ -69,7 +69,17 @@ public class ParseUtils {
                     ));
                 }
 
-                questions.add(new Question(question.getInt("ID"), contentList, answerList));
+                String intro = question.getString("intro");
+                String audio = question.getString("Audio");
+
+                questions.add(
+                        new Question(
+                                question.getInt("ID"),
+                                contentList,
+                                answerList,
+                                intro,
+                                audio
+                        ));
 
             } catch (JSONException e) {
                 e.printStackTrace();
