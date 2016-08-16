@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".ui.ChooseCodeActivity">
         </activity>
+        <activity android:name=".FrenchCodeActivity">
+        </activity>
     </application>
 
 </manifest>

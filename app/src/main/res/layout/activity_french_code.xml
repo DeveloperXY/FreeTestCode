@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:costum="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.octagen.freetestcode.ui.ChooseCodeActivity">
+    xmlns:costum="http://schemas.android.com/apk/res-auto"
+    tools:context="com.octagen.freetestcode.FrenchCodeActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -71,7 +71,7 @@
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 costum:Font="cent.TTF"
-                costum:Frensh="Code en"
+                costum:Frensh="Les séries en"
                 costum:Size="16"/>
 
             <com.octagen.customviews.CustomTextView
@@ -84,7 +84,7 @@
                 android:textColor="@color/red"
                 android:textStyle="bold"
                 costum:Font="cent.TTF"
-                costum:Frensh="ARABE"
+                costum:Frensh="FRANCAIS"
                 costum:Size="16"/>
         </LinearLayout>
 
@@ -110,7 +110,7 @@
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 costum:Font="cent.TTF"
-                costum:Frensh="Code en"
+                costum:Frensh="Les"
                 costum:Size="16"/>
 
             <com.octagen.customviews.CustomTextView
@@ -123,12 +123,22 @@
                 android:textColor="@color/red"
                 android:textStyle="bold"
                 costum:Font="cent.TTF"
-                costum:Frensh="FRANCAIS"
+                costum:Frensh="PANNEAUX"
                 costum:Size="16"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <include layout="@layout/multicolored_footer_include"/>
+
+    <ImageView
+        android:id="@+id/settings"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onSettingsPressed"
+        android:src="@drawable/ic_settings"/>
 
 </RelativeLayout>
