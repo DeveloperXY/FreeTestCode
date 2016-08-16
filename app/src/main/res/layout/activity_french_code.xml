@@ -57,7 +57,6 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_weight="12"
-            android:onClick="onArabicSelected"
             android:background="@drawable/clickable_yellow"
             android:clickable="true"
             android:orientation="horizontal">
@@ -97,7 +96,6 @@
             android:layout_weight="12"
             android:background="@drawable/clickable_yellow"
             android:clickable="true"
-            android:onClick="onFrenchSelected"
             android:orientation="horizontal">
 
             <com.octagen.customviews.CustomTextView

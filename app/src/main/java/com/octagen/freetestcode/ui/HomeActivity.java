@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.octagen.customviews.TypeFaces;
 import com.octagen.freetestcode.R;
-import com.octagen.freetestcode.ui.dialogs.SettingsDialog;
 import com.octagen.freetestcode.utils.CalculateScreenSize;
 
 import butterknife.Bind;
@@ -21,7 +19,7 @@ import butterknife.ButterKnife;
  *
  * This is the main activity of the application, that shows the main menu.
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends SettingsAbleActivity {
 
     @Bind(R.id.historyButton)
     Button historyButton;
@@ -74,11 +72,6 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra("image", image);
         intent.putExtra("color", color);
         startActivity(intent);
-    }
-
-    public void onSettingsPressed(View view) {
-        SettingsDialog settingsDialog = new SettingsDialog(this);
-        settingsDialog.show();
     }
 
     public void onHistoryPressed(View view) {

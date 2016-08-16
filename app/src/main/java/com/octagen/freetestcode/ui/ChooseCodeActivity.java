@@ -2,13 +2,12 @@ package com.octagen.freetestcode.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.octagen.freetestcode.FrenchCodeActivity;
 import com.octagen.freetestcode.R;
 
-public class ChooseCodeActivity extends AppCompatActivity {
+public class ChooseCodeActivity extends SettingsAbleActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,9 +1,10 @@
 package com.octagen.freetestcode;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class FrenchCodeActivity extends AppCompatActivity {
+import com.octagen.freetestcode.ui.SettingsAbleActivity;
+
+public class FrenchCodeActivity extends SettingsAbleActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
