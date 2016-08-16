@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".ui.HistoryActivity">
         </activity>
+        <activity android:name=".ui.ChooseCodeActivity">
+        </activity>
     </application>
 
 </manifest>

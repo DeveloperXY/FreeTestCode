@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:costum="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.octagen.freetestcode.ui.ChooseCodeActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:src="@drawable/ic_launcher"/>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/free_test_text"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_weight="12"
+            android:onClick="onArabicSelected"
+            android:background="@drawable/clickable_yellow"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <com.octagen.customviews.CustomTextView
+                android:id="@+id/textView5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:gravity="center_vertical|right"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                costum:Font="cent.TTF"
+                costum:Frensh="Code en"
+                costum:Size="16"/>
+
+            <com.octagen.customviews.CustomTextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="50"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                costum:Font="cent.TTF"
+                costum:Frensh="ARABE"
+                costum:Size="16"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="12"
+            android:background="@drawable/clickable_yellow"
+            android:clickable="true"
+            android:onClick="onFrenchSelected"
+            android:orientation="horizontal">
+
+            <com.octagen.customviews.CustomTextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="50"
+                android:gravity="center_vertical|right"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                costum:Font="cent.TTF"
+                costum:Frensh="Code en"
+                costum:Size="16"/>
+
+            <com.octagen.customviews.CustomTextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="50"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                costum:Font="cent.TTF"
+                costum:Frensh="FRANCAIS"
+                costum:Size="16"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
