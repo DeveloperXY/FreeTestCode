@@ -28,7 +28,9 @@
         </activity>
         <activity android:name=".ui.ChooseCodeActivity">
         </activity>
-        <activity android:name=".FrenchCodeActivity">
+        <activity android:name=".ui.FrenchCodeActivity">
+        </activity>
+        <activity android:name=".ui.PanelsActivity">
         </activity>
     </application>
 

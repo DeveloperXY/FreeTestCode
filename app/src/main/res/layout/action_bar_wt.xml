@@ -6,78 +6,96 @@
                 android:layout_height="match_parent"
                 tools:layout_height="60dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/actionbarContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.8"
-        android:orientation="horizontal"
-        tools:background="@color/redActionbar">
+        android:layout_height="match_parent">
 
-        <Space
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"/>
+            android:alpha="0.8"
+            android:orientation="horizontal"
+            tools:background="@color/redActionbar">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"/>
+
+            <ImageView
+                android:id="@+id/Back"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:src="@drawable/ic_back"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"/>
+
+            <ImageView
+                android:id="@+id/Image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="15"
+                android:src="@drawable/ic_white_motocycle"
+                android:transitionName="catImgAnim"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="47">
+
+                <com.octagen.customviews.CustomTextView
+                    android:id="@+id/Libelle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#ffffff"
+                    android:transitionName="serieAnim"
+                    costum:Font="cent.TTF"
+                    costum:Size="16"
+                    tools:text="Serie 1"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10">
+
+                <com.octagen.customviews.CustomTextView
+                    android:id="@+id/timerLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    costum:Font="cent.TTF"
+                    costum:Size="16"
+                    tools:size="16sp"
+                    tools:text="60"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/Back"
-            android:layout_width="0dp"
+            android:id="@+id/helpImage"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:src="@drawable/ic_back"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20"/>
-
-        <ImageView
-            android:transitionName="catImgAnim"
-            android:id="@+id/Image"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="8dp"
-            android:layout_weight="15"
-            android:src="@drawable/ic_white_motocycle"/>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="47">
-
-            <com.octagen.customviews.CustomTextView
-                android:transitionName="serieAnim"
-                android:id="@+id/Libelle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left|center_vertical"
-                android:textColor="#ffffff"
-                costum:Font="cent.TTF"
-                costum:Size="16"
-                tools:text="Serie 1"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10">
-
-            <com.octagen.customviews.CustomTextView
-                android:id="@+id/timerLabel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left|center_vertical"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                costum:Font="cent.TTF"
-                costum:Size="16"
-                tools:size="16sp"
-                tools:text="60"/>
-
-        </RelativeLayout>
-
-    </LinearLayout>
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:src="@drawable/ic_help"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+    </RelativeLayout>
 
 </RelativeLayout>

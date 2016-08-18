@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.octagen.freetestcode.FrenchCodeActivity;
 import com.octagen.freetestcode.R;
 
 public class ChooseCodeActivity extends SettingsAbleActivity {

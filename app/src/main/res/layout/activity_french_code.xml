@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:costum="http://schemas.android.com/apk/res-auto"
-    tools:context="com.octagen.freetestcode.FrenchCodeActivity">
+    tools:context=".ui.FrenchCodeActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -96,7 +96,8 @@
             android:layout_weight="12"
             android:background="@drawable/clickable_yellow"
             android:clickable="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:onClick="onPanelsSelected">
 
             <com.octagen.customviews.CustomTextView
                 android:id="@+id/textView7"
